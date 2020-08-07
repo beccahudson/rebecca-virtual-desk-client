@@ -13,7 +13,7 @@ export default class HelpPage extends Component {
             <>
             <section id='HelpPage' className='Help'>
                 <HelpTable {...this.props} />
-                {/* <button className="btn">New</button> */}
+                <button className="btn">New</button>
             </section>
             </>
         )
