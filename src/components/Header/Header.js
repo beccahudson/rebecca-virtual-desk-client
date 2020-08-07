@@ -35,7 +35,7 @@ export default class Header extends Component {
     return (
       <Head className='Header'>
           <H1>Student's Virtual Desk</H1>
-          <Image src="../images/portait.jpg" alt="" />
+          <Image src="/images/portait.jpg" alt="" />
       </Head>
     )
   }

@@ -24,6 +24,14 @@ body {
     border: 5px solid #ff5252 !important;
 }
 
+.HelpTicket tr{
+    cursor: pointer;
+}
+.HelpTicket tr:hover{
+    background-color: goldenrod;
+    color: #666;
+}
+
 /* HELP QUEUE */
 /* .HelpQueue {
     width: 80%;

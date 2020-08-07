@@ -7,26 +7,28 @@ import Context from '../../Context';
 
 export default class HelpTable extends Component {
     static contextType = Context;
+    // this creates a class property called context
+    // this.context
+
+    handleClick = ticketid => {
+        this.props.history.push(`/help/${ticketid}`);
+    }
 
     renderHelpTable() {
-        return Context.ticketList.map((ticket, index) => {
-            console.log(this.Context.ticketList);
-            console.log(ticket);
-        //    const { subject, question, due, ticket_status } = ticket
+        return this.context.ticketList.map(ticket => {
+
+            const { subject, question, due, ticket_status } = ticket
             const ticketRow =
-              <tr>
-                 <td>{ticket[index].ticket_status}</td>
-                 <td>{ticket[index].subject}</td>
-                 <td>{ticket[index].question}</td>
-                 <td>{ticket[index].due}</td>
+              <tr key={ticket.id} onClick={()=>this.handleClick(ticket.id)}>
+                 <td>{ticket_status}</td>
+                 <td>{subject}</td>
+                 <td>{question}</td>
+                 <td>{due}</td>
                  {/* <td>{faculty}</td> */}
               </tr>;
             return ticketRow;
         })
      }
-
-     
-
 
     render() {
         return (
@@ -40,8 +42,8 @@ export default class HelpTable extends Component {
                     <th>TEACHER</th>
                 </tr>
             </thead>
-            <tbody className='HelpTicket' to="/ViewHelpTicket">
-                {this.renderHelpTable} 
+            <tbody className='HelpTicket'>
+                {this.renderHelpTable()} 
             </tbody>
         </table>
         )

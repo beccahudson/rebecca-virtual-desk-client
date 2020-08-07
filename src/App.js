@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 // import styled from 'styled-components';
 // import { library } from '@fortawesome/fontawesome-svg-core';
 // import { far, faHandPaper,faComments,faEdit,faStickyNote,faClock } from '@fortawesome/free-regular-svg-icons';
@@ -7,7 +7,8 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import HelpPage from './components/Help/HelpPage';
 import HelpApiService from './services/help-api-service';
-// import Dashboard from './components/Dashboard/Dashboard';
+import ViewHelpTicket from './components/Help/ViewHelpTicket';
+import Dashboard from './components/Dashboard/Dashboard';
 // import Faq from './components/FaqList/FaqList';
 // import FaqApiService from './services/faq-api-service';
 // import Notes from './components/Notes/NotesPage';
@@ -49,73 +50,55 @@ export default class App extends React.Component {
     chatList: [],
     chat: nullChat,
     error: null,
-    setUserList: () => {},
-    setTicketList: () => {},
-    setChatList: () => {},
-    clearTicket: () => {},
-    clearChat: () => {},
-    setError: () => {},
-    clearError: () => {}
-  };
-  
-  setUserList = (userList) => {
-    this.setState({userList})
-  }
-
-  setTicketList = (ticketList) => {
-    this.setState({ticketList})
-  }
-
-  setChatList = (chatList) => {
-    this.setState({chatList})
-  }
-
-  addTicket = (ticket) => {
-    this.setTicketList([
-      ...this.state.ticketList,
-      ticket
-    ])
-  }
-
-  addChat = (chat) => {
-    this.setChatList([
-      ...this.state.chatList,
-      chat
-    ])
-  }
-
-  clearTicket = () => {
-    this.setState({ ticket: nullTicket })
-  }
-
-  clearChat = () => {
-    this.setState({ chat: nullChat })
-  }
-
-  setError = error => {
-    console.error(error)
-    this.setState({ error })
-  }
-
-  clearError = () => {
-    this.setState({ error: null })
-  }
-
-  
+    setUserList: (userList) => {
+      this.setState({userList})
+    },
+    setTicketList: (ticketList) => {
+      this.setState({ticketList})
+    },
+    setChatList: (chatList) => {
+      this.setState({chatList})
+    },
+    addTicket: (ticket) => {
+      this.setTicketList([
+        ...this.state.ticketList,
+        ticket
+      ])
+    },
+    addChat: (chat) => {
+      this.setChatList([
+        ...this.state.chatList,
+        chat
+      ])
+    },
+    clearTicket: () => {
+      this.setState({ ticket: nullTicket })
+    },
+    clearChat: () => {
+      this.setState({ chat: nullChat })
+    },
+    setError: (error)  => {
+      console.error(error)
+      this.setState({ error })
+    },
+    clearError: () => {
+      this.setState({ error: null })
+    }
+  };  
   
   componentDidMount() {
-    const ticket_id = this.state.ticket.id;
+    
     HelpApiService.getUsers()
-        .then(this.setUserList)
-        .catch(this.setError);
+        .then(this.state.setUserList)
+        .catch(this.state.setError);
 
     HelpApiService.getTickets()
-        .then(this.setTicketList)
-        .catch(this.setError);
+        .then(this.state.setTicketList)
+        .catch(this.state.setError);
 
-    HelpApiService.getChatComments(ticket_id)
-        .then(this.setChatList)
-        .catch(this.setError);
+    /*HelpApiService.getChatComments(ticket_id)
+        .then(this.state.setChatList)
+        .catch(this.state.setError);*/
 }
 
  
@@ -128,9 +111,17 @@ export default class App extends React.Component {
           <main className='App__main'>
               <Route 
                  exact
-                 path={'/'}
+                 path='/'
+                 component={Dashboard}
+              />
+
+            <Route 
+                 exact
+                 path='/help'
                  component={HelpPage}
               />
+
+              <Route path="/help/:ticketid" component={ViewHelpTicket} />
               
           </main>
           <Footer />
