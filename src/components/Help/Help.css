@@ -1,0 +1,113 @@
+body {
+    /* width: 100%; */
+    background-color: #555;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #eee;
+}
+.col {
+    flex-direction: column;
+    display: flex;
+}  
+.row {
+    flex-direction: row;
+    display: inline-flex;
+}
+.new {
+   border: 5px solid #00e676 !important;
+}
+.assigned {
+    border: 5px solid #ffd740 !important;
+}
+.closed {
+    border: 5px solid #ff5252 !important;
+}
+
+/* HELP QUEUE */
+/* .HelpQueue {
+    width: 80%;
+    margin: auto;
+}
+header {
+    padding: 0.5em !important;
+    margin-bottom: 1em;
+    justify-content: center;
+    align-content: center;
+    background: #333;
+    height: 100px;
+    box-shadow: 3px 3px 5px #00101f;
+}
+h1 {
+    margin: 0 10px;
+    color: aquamarine !important;
+    font-family: 'Nixie One', cursive;
+    font-size: 10vw;
+    text-align: center;
+    vertical-align: center;
+    text-shadow: 1.5px 1.5px 3px #000d19,
+                -1px 1px 1.5px #ccc;
+}  */
+
+/* HELP TABLE */
+/* table {
+    width: 100%;
+    max-height: 400px;
+    display: inline-table;
+}
+th {
+    padding: 10px;
+    font-size: 1.25em;
+    text-align: center;
+    color: aquamarine !important;
+    border: 1px solid #ddd;
+    padding: 8px;
+} */
+
+/* HELP TICKET */
+/* tr:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+tr:nth-child(1):hover {
+    background-color: transparent;
+}
+td {
+    font-size: .75em;
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+td a {
+    color: #eee;
+    text-decoration: none;
+} */
+/* div {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    overflow: auto;
+    color: #eee;
+    background: #333;
+    flex-direction: column;
+} */
+.btn {
+    width: 10vw;
+    text-decoration: none;
+    height: 35px;
+    margin: 8px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 400ms;
+    background: transparent;
+    align-self: flex-end;
+    box-shadow: 2.5px 2.5px 5px #1d1d1d, -2px -2px 5px #aaa;
+    border:none;
+  }
+  .btn:hover {
+    box-shadow: inset 5px 5px 10px #1d1d1d, inset -2px -2px 10px #aaa;
+    transform: translatey(2px);
+    border:none;
+  }
+
