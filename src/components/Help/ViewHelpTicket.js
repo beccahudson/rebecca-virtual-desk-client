@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Context from '../../Context';
+import './Help.css';
 
 export default class ViewHelpTicket extends Component {
 
@@ -11,13 +12,15 @@ export default class ViewHelpTicket extends Component {
         ) || {};
         return (
         <>
-            <section className='ticketInfo'>
-                <button onClick={()=>this.props.history.goBack()}>Back</button>
-                <h2>{ticket.question}</h2>
-            </section>
-            <section className='chatBox'>
+            <section id='ticketInfo'>
+                <h2>{this.context.student.first_name} {this.context.student.last_name}</h2>
+                <h3>{ticket.question}</h3>
                 
             </section>
+            <section id='chatBox'>
+                
+            </section>
+            <button className="btn-secondary" onClick={()=>this.props.history.goBack()}>Back</button>
         </>
         )
     }

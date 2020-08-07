@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-// import styled from 'styled-components';
-import './HelpQueue.css';
-
 import Context from '../../Context';
+import './Help.css';
+
 
 export default class HelpTicketForm extends Component {
     static contextType = Context;
@@ -10,18 +9,41 @@ export default class HelpTicketForm extends Component {
 
     render() {
         return (
-            <form className="HelpTicketForm">
-                <label for="fName">First Name<input type="text" required/></label>
-                <label for="lName">Last Name<input type="text" required/></label>
-                <label for="subject">Subject/Class<input type="text" required/></label>
-                <label for="question">Question<input type="text" required/></label>
-                <label for="dueDate">Due Date<input type="date" /></label>
-                <input className="btn reset" type="reset" value="Reset" />
-                <input className="btn" type="submit" value="Submit" />
+            <form id="HelpTicketForm">
+               
+
+       <h1>Submit New Help Ticket</h1>
+		<div class="form-field multi-input">
+			<label for="name">Name</label>
+			<input type="text" className="nameInput" name="first-name" id="name" placeholder="first name"/>
+			<input type="text" className="nameInput" placeholder="last name"/>
+		</div>
+		<div class="form-field input-right">
+		<label for="subject">Subject</label>
+			<input type="text" name="subject" id="subject" placeholder="Math"/>
+		</div>
+        <div class="form-field input-right">
+		<label for="question">Question</label>
+			<input type="text" name="question" id="question" placeholder="What is Math?"/>
+		</div>
+		<div class="form-field multi-input">
+		<label for="dueDate">Due date</label>
+			<select name="dueDate" id="dueDate" class="dueDate-select">
+				<option selected disabled>dd</option>
+			</select>
+			
+			<select name="dob_month" id="dob">
+				<option selected disabled>mm</option>
+			</select>
+		</div>
+		<div class="form-field submit-field">
+		<input type="submit" value="Raise Your Hand!"/>
+        <input type="reset" value="Reset" />
+		</div>
+
             </form>
             
         )
     }
 }
-
 

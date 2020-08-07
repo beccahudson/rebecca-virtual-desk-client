@@ -1,12 +1,9 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-// import styled from 'styled-components';
-// import { library } from '@fortawesome/fontawesome-svg-core';
-// import { far, faHandPaper,faComments,faEdit,faStickyNote,faClock } from '@fortawesome/free-regular-svg-icons';
+import HelpApiService from './services/help-api-service';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import HelpPage from './components/Help/HelpPage';
-import HelpApiService from './services/help-api-service';
 import ViewHelpTicket from './components/Help/ViewHelpTicket';
 import Dashboard from './components/Dashboard/Dashboard';
 // import Faq from './components/FaqList/FaqList';
@@ -15,17 +12,13 @@ import Dashboard from './components/Dashboard/Dashboard';
 // import NoteApiService from './services/note-api-service';
 // import StudyHall from './components/StudyHall/StudyHallPage';
 // import StudyApiService from './services/study-api-service';
+// import { library } from '@fortawesome/fontawesome-svg-core';
+// import {  } from '@fortawesome/free-regular-svg-icons';
 import './App.css';
 import Context from './Context';
+import HelpTicketForm from './components/Help/HelpTicketForm';
 
-// library.add(
-//   far,
-//   faComments,
-//   faHandPaper,
-//   faComments,
-//   faEdit,
-//   faStickyNote,
-//   faClock,
+// library.add(far, faComments, faHandPaper, faEdit, faStickyNote, faClock, faDoorClosed, faLaptopHouse, faStickyNote, faExternalLinkAlt, faSignOutAlt, faSignInAlt, faTimes, faPlus, faChalkboardTeacher, faTrashAlt, faQuestionCircle, faSearch, faCogs
 // )
 
 export const nullTicket = {
@@ -44,7 +37,13 @@ export const nullChat = {
 export default class App extends React.Component {
   state = {
     userList: [],
-    user: {},
+    user: {},		
+    student: {
+      first_name: 'Charlie',
+      last_name: 'Bloggs',
+      email: 'fake@student.email.com',
+      grade: '10'
+    },
     ticketList: [],
     ticket: nullTicket,
     chatList: [],
@@ -52,6 +51,12 @@ export default class App extends React.Component {
     error: null,
     setUserList: (userList) => {
       this.setState({userList})
+    },
+    setUser: (user) => {
+      this.setState({user})
+    },
+    setCurrentStudent: (student) => {
+      this.setState({student})
     },
     setTicketList: (ticketList) => {
       this.setState({ticketList})
@@ -89,16 +94,24 @@ export default class App extends React.Component {
   componentDidMount() {
     
     HelpApiService.getUsers()
-        .then(this.state.setUserList)
-        .catch(this.state.setError);
+      .then(this.state.setUserList)
+      .catch(this.state.setError);
+
+    HelpApiService.getUser()
+      .then(this.state.setCurrentStudent)
+      .catch(this.state.setError);
+
+    HelpApiService.getUser()
+      .then(this.state.setUser)
+      .catch(this.state.setError);
 
     HelpApiService.getTickets()
-        .then(this.state.setTicketList)
-        .catch(this.state.setError);
+      .then(this.state.setTicketList)
+      .catch(this.state.setError);
 
     /*HelpApiService.getChatComments(ticket_id)
-        .then(this.state.setChatList)
-        .catch(this.state.setError);*/
+      .then(this.state.setChatList)
+      .catch(this.state.setError);*/
 }
 
  
@@ -106,26 +119,30 @@ export default class App extends React.Component {
   render() {
     return (
       <Context.Provider value={this.state}>
-        <div className='App'>
-          <Route path="/" component={Header} />
+          <Header />
           <main className='App__main'>
-              <Route 
-                 exact
-                 path='/'
-                 component={Dashboard}
-              />
-
             <Route 
-                 exact
-                 path='/help'
-                 component={HelpPage}
-              />
-
-              <Route path="/help/:ticketid" component={ViewHelpTicket} />
-              
+              exact
+              path='/'
+              component={Dashboard}
+            />
+            <Route 
+              exact
+              path='/help'
+              component={HelpPage}
+            />
+            <Route 
+              exact
+              path='/help/newticket'
+              component={HelpTicketForm}
+            />
+            <Route
+              exact
+              path="/help/:ticketid"
+              component={ViewHelpTicket}
+            />              
           </main>
           <Footer />
-        </div>
       </Context.Provider>
     )
   }

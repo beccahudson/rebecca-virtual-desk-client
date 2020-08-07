@@ -1,29 +1,599 @@
-.Footer {
+/****** BASE ******/
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #555;
+}
+h1,
+h2,
+h3 {
+  font-family: "Nixie+One", serif;
+  color: aquamarine;
+}
+h4,
+h5,
+h6 {
+  font-family: 'Montserrat', sans-serif;
+}
+a {
+  text-decoration: none !important;
+}
+p {
+  margin-top: 0;
+}
+hr {
+  border-top: 0.5px solid rgba(153, 153, 153, 0.7);
+  margin: 1em auto;
+}
+main {
+  /* display: flex; */
+  width: 100%;
+  margin: auto;
+}
+
+
+/****** FLEXBOX FORMAT ******/
+.hidden {
+  display: none;
+}
+.col {
+  flex-direction: column;
+  display: flex;
+}
+.col-wrap {
+  flex-flow: column wrap;
+  display: flex;
+}
+.row {
+  flex-direction: row;
+  display: inline-flex;
+}
+.row-wrap {
+  flex-flow: row wrap;
+  display: inline-flex;
+  /* align-content: center; */
+}
+.group {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+.item {
+  flex: 1;
+  margin: auto;
+  text-align: center;
+  color: #f2f2f2;
+  line-height: 1.25em;
+  display: flex;
+  justify-content: center;
+}
+.item-double {
+  flex: 2;
+  margin: 10px;
+  text-align: center;
+  color: #f2f2f2;
+  line-height: 1.25em;
+  display: flex;
+  justify-content: center;
+}
+.item-triple {
+  flex: 3;
+  margin: 10px;
+  text-align: center;
+  color: #f2f2f2;
+  line-height: 1.25em;
+  display: flex;
+  justify-content: center;
+}
+.item-quad {
+  flex: 4;
+  /* margin: 5px; */
+  text-align: center;
+  color: #f2f2f2;
+  line-height: 1.25em;
+  display: flex;
+  justify-content: center;
+}
+.blue {
+  background-color:#40c4ff;
+}
+.purple {
+  background-color:#b47cff;
+}
+.orange {
+  background-color:#ff6e40;
+}
+.pink {
+  background-color:#ff79b0;
+}
+.green {
+  border: 5px solid #00e676 !important;
+}
+.red {
+  border: 5px solid #ff5252 !important;
+}
+.yellow {
+  border: 5px solid #ffd740 !important;
+}
+.greenBG {
+  background-color:#00e676;
+}
+.redBG {
+  background-color:#ff5252;
+}
+.yellowBG {
+  background-color:#ffd740;
+}
+
+/****** GLOBAL STYLES ******/
+#overlay {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+main h1 {
+  margin: 0 10px;
+  text-align: center;
+  font-size: 5vw;
+}
+main h2 {
+  display: block;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 18px 0 12px 0;
+  font-size: 3vw;
+  line-height: 1.5em;
+}
+main h3 {
+  margin: 18px 0 12px 0;
+  font-size: 2vw;
+  line-height: normal;
+}
+img {
+  width: 100%;
+}
+.wrapper {
+  width: 90%;
+  margin: 1em auto;
+  padding: 1em;
+  color: #eee;
+  background-color: #333;
+  box-shadow: 5px 5px 5px #000, -1px -1px 5px #aaa;
+  border-radius: 0.5em;
+}
+.new {
+  border: 5px solid #00e676 !important;
+}
+.assigned {
+   border: 5px solid #ffd740 !important;
+}
+.closed {
+   border: 5px solid #ff5252 !important;
+}
+.btn {
+  width: 10vw;
+  text-decoration: none;
+  /* height: 35px; */
+  margin: 0 8px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 400ms;
+  background: aquamarine;
+  box-shadow: 5px 5px 10px #222, -5px -5px 10px #ccc;
+}
+.btn:hover {
+  box-shadow: inset 5px 5px 10px #222, inset -5px -5px 10px #ccc;
+  transform: translatey(2px);
+}
+.btn i {
+  font-size: 2em;
+  transition: all 400ms;
+  color: aquamarine;
+}
+.btn a {
+  color: aquamarine;
+}
+.btn-round {
+  width: 3em;
+  height: 3em;
+  margin: 1em;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  cursor: pointer;
+  /* background: aquamarine; */
+}
+button {
+  cursor: pointer;
+  padding: 0.25em;
+  font-weight: bold;
+}
+section .btn {
+  display: inline-block;
+  border: none;
+  color: aquamarine;
+  background: none;
+  padding: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  height: auto;
+  padding: .25em;
+  width: 5em;
+}
+section p {
+  color: #eee;
+}
+
+
+/* HEADER STYLES */
+header {
+  padding: 0.5em;
+  margin-bottom: 1em;
+  justify-content: center;
+  background: #333;
+  box-shadow: 3px 3px 5px #000;
+  height: fit-content;
+}
+header h1 {
+  font-size: 8vw;
+  text-align: center;
+  text-shadow: 1.5px 1.5px 3px #000,
+              -1px 1px 1.5px #ccc;
+}
+header img {
+  height: 75px;
+  width: 75px;
+  margin: auto;
+  border-radius: 50%;
+  border: 2px solid aquamarine;
+  align-self: center;
+  display: block;
+}
+
+
+/****** DASHBOARD ******/
+#Dashboard {
+  margin: auto;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+/****** TEACHERS SECTION ******/
+/* #teachers {
+  text-align: center;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: auto;
+} */
+#Teachers ul {
+  list-style: none;
+}
+/* #teachers li {
+  padding: 1em 0;
+} */
+#Teachers .btn-round {
+  margin: 0 0.5em;
+}
+#Teachers img {
+  height: 2em;
+  width: 2em;
+  border-radius: 50%;
+  border: 2px solid aquamarine;
+  padding: 10px;
+}
+#Teachers group {
+  max-width: 100%;
+}
+
+
+/* HELP QUEUE SECTION */
+#help-queue {
+  color: #eee;
+  background: #333;
+}
+#help-queue h1 {
+  color: #eee;
+  text-shadow: 1.5px 1.5px 3px #000, -0.5px 0.5px 1.5px #eee;
+}
+#help-queue .header {
+  margin: 0 auto 0.5em auto;
+}
+#help-queue .btn {
+  color: aquamarine;
+  box-shadow: 2.5px 2.5px 5px #000, -1px -1px 5px #ccc;
+}
+#help-queue .btn i {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  color: aquamarine;
+  align-items: center;
+  justify-content: center;
+}
+#help-queue img {
+  width: 50px;
+  height: 50px;
+}
+#table {
+  width: 100%;
+  max-height: 400px;
+  display: flex;
+  /* overflow-y: auto;
+  overflow-x: hidden; */
+}
+table {
+  width: 100%;
+}
+table th {
+  padding: 10px;
+  font-size: 1.5em;
+  text-align: left;
+  color: #eee;
+  border-bottom: 0.5px solid #eee;
+}
+table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+table td a {
+  color: #eee;
+  /* font-weight: 900; */
+  text-decoration: none;
+}
+table td {
+  font-size: .75em;
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+table tr:nth-child(1):hover {
+  background-color: transparent;
+}
+table tr:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+
+/* STUDY HALL SECTION  */
+#study-hall {
+  color: #eee;
+  background: #333;
+}
+#study-hall h1 {
+  color: #eee;
+  text-shadow: 1.5px 1.5px 3px #222, -1px 1px 1.5px #eee;
+}
+#study-hall .header {
+  margin: 0 auto 0.5em auto;
+}
+#study-hall .btn {
+  box-shadow: 2.5px 2.5px 5px #000, -1px -1px 5px #ccc;
+}
+#study-hall .btn i {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  color: aquamarine;
+  align-items: center;
+  justify-content: center;
+}
+#study-hall img {
+  width: 50px;
+  height: 50px;
+}
+#study-hall th {
+  padding: 10px;
+  text-align: left;
+  color: aquamarine;
+}
+#study-hall td {
+  font-size: 0.75em;
+}
+#study-hall td a {
+  color: #eee;
+  /* font-weight: 900; */
+  text-decoration: none;
+}
+#study-hall th,
+#study-hall td {
+  border: 1px solid #666;
+  padding: 8px;
+}
+#study-hall tr:nth-child(1):hover {
+  background-color: transparent;
+}
+#study-hall tr:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+#study {
+  width: 100%;
+  max-height: 400px;
+}
+
+
+/* STICKY NOTES SECTION  */
+#sticky-notes h4, #sticky-notes p {
+  color: #333;
+  font-weight: bolder;
+}
+#sticky-notes h1 {
+  color: #eee;
+  text-shadow: 1.5px 1.5px 3px #222, -1px 1px 1.5px #eee;
+}
+#sticky-notes .header {
+  margin: 0 auto 0.5em auto;
+}
+#sticky-notes .btn {
+  box-shadow: 2.5px 2.5px 5px #000, -1px -1px 5px #ccc;
+}
+#sticky-notes .btn i {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  color: aquamarine;
+  align-items: center;
+  justify-content: center;
+}
+#sticky-notes img {
+  width: 50px;
+  height: 50px;
+}
+#note {
+  font-size: .75em;
+  min-height: 150px;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  padding: 1%;
+  justify-content: normal;
+  border-radius:0 0 0 30px;
+  box-shadow:
+    inset 0 -40px 40px rgba(0,0,0,0.2),
+    inset 0 25px 10px rgba(0,0,0,0.2),
+    0 5px 6px 5px rgba(0,0,0,0.2);
+  line-height:1.7em;
+  font-size:19px;
+}
+#note h4, #note p {
+  font-family: 'Permanent Marker', cursive;
+}
+/* #note:before {
+  content:"";
+  display:block;
+  position:absolute;
+  width:29.5px;
+  height:20px;
+  box-shadow:
+    3px -2px 10px rgba(0,0,0,0.2),
+    inset 15px -15px 15px rgba(0,0,0,0.22);
+  left:49.45px;
+  bottom:111px;
+  z-index:2;
+  transform:rotate(9deg);
+  border-bottom-left-radius: 100%;
+} */
+/* #note:after {
+  content:"";
+ display:block;
+ position:absolute;
+ width:75%;
+ height:20px; 
+ border-top:3px solid #130d6b;
+ border-radius: 50% ;
+ bottom:0px;
+ left:10%;
+} */
+#note:nth-child(4n) {
+  margin-right: 0;
+}
+#notes {
+  overflow: auto;
+  max-height: 400px;
+}
+
+
+/* FAQ SECTION  */
+#search-faq {
+  color: #eee;
+  background: #333;
+}
+#search-faq h1 {
+  color: #eee;
+  /* text-shadow: 1.5px 1.5px 3px #000d19, -1px 1px 1.5px #eee; */
+}
+#search-faq .header {
+  margin: 0 auto 0.5em auto;
+}
+#search-faq p {
+  font-size: 0.75em;
+}
+#search-faq .btn {
+  box-shadow: 2.5px 2.5px 5px #000, -1px -1px 5px #ccc;
+}
+#search-faq .btn i {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  color: aquamarine;
+  align-items: center;
+  justify-content: center;
+}
+#search-faq img {
+  width: 50px;
+  height: 50px;
+}
+#search-faq .item-quad {
+  min-height: 150px;
+  margin-right: 1em;
+  padding: 0 1%;
+}
+#search-faq ul {
+  list-style: none;
+  text-align: left;
+}
+#search-faq li {
+  border-bottom: 1px solid #eee;
+}
+#search-faq a {
+  color: #eee;
+  font-size: 0.75em;
+}
+#search-faq .item-quad:nth-child(4n) {
+  margin-right: 0;
+}
+#faq {
+  overflow: auto;
+  max-height: 400px;
+}
+
+
+
+/****** STUDY HALL PAGE ******/
+
+/****** STICKY NOTES PAGE ******/
+
+/****** FAQ PAGE ******/
+
+
+/****** FOOTER ******/
+#Footer {
     background-color: #333;
     color: #eee;
     width: 100%;
     bottom: 0;
     display: flex;
     margin: 0;
-    border-radius: 0 !important;
+    border-radius: 0;
+    justify-content: space-around;
+    min-height: 50px;
+    align-items: center;
 }
 
-.itemTriple {
-  flex: 3;
-    margin: 10px;
-    text-align: center;
-    text-decoration: none;
-    line-height: 1.25em;
-    display: flex;
-    justify-content: center;
-    border-right: 1px solid #eee;
+#Footer .itemTriple {
+  border-right: 1px solid #eee;
+  width: 100%;
 }
 
-.itemTriple:last-child {
+#Footer .itemTriple:last-child {
   border-right: none;
 }
-
-.itemTriple a {
+#Footer a {
   color: aquamarine;
-    text-decoration: none;
+}
+#Footer img {
+  width: 100px;
+  height: 100px;
 }

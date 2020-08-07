@@ -1,107 +1,128 @@
-body {
-    /* width: 100%; */
-    background-color: #555;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    color: #eee;
-}
-.col {
+/****** FLEXBOX FORMAT ******/
+.hidden {
+    display: none;
+  }
+  .col {
     flex-direction: column;
     display: flex;
-}  
-.row {
+  }
+  .col-wrap {
+    flex-flow: column wrap;
+    display: flex;
+  }
+  .row {
     flex-direction: row;
     display: inline-flex;
-}
-.new {
-   border: 5px solid #00e676 !important;
-}
-.assigned {
-    border: 5px solid #ffd740 !important;
-}
-.closed {
-    border: 5px solid #ff5252 !important;
-}
-
-.HelpTicket tr{
-    cursor: pointer;
-}
-.HelpTicket tr:hover{
-    background-color: goldenrod;
-    color: #666;
-}
-
-/* HELP QUEUE */
-/* .HelpQueue {
-    width: 80%;
-    margin: auto;
-}
-header {
-    padding: 0.5em !important;
-    margin-bottom: 1em;
-    justify-content: center;
-    align-content: center;
-    background: #333;
-    height: 100px;
-    box-shadow: 3px 3px 5px #00101f;
-}
-h1 {
-    margin: 0 10px;
-    color: aquamarine !important;
-    font-family: 'Nixie One', cursive;
-    font-size: 10vw;
-    text-align: center;
-    vertical-align: center;
-    text-shadow: 1.5px 1.5px 3px #000d19,
-                -1px 1px 1.5px #ccc;
-}  */
-
-/* HELP TABLE */
-/* table {
+  }
+  .row-wrap {
+    flex-flow: row wrap;
+    display: inline-flex;
+    /* align-content: center; */
+  }
+  .group {
+    max-width: 1440px;
     width: 100%;
-    max-height: 400px;
-    display: inline-table;
-}
-th {
-    padding: 10px;
-    font-size: 1.25em;
+    margin: 0 auto;
+    padding: 0;
+  }
+  .item {
+    flex: 1;
+    margin: auto;
     text-align: center;
-    color: aquamarine !important;
-    border: 1px solid #ddd;
-    padding: 8px;
-} */
-
-/* HELP TICKET */
-/* tr:hover {
-    background-color: rgba(255, 255, 255, 0.25);
-}
-tr:nth-child(1):hover {
-    background-color: transparent;
-}
-td {
-    font-size: .75em;
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-td a {
-    color: #eee;
-    text-decoration: none;
-} */
-/* div {
+    color: #f2f2f2;
+    line-height: 1.25em;
     display: flex;
+    justify-content: center;
+  }
+  .item-double {
+    flex: 2;
+    margin: 10px;
+    text-align: center;
+    color: #f2f2f2;
+    line-height: 1.25em;
+    display: flex;
+    justify-content: center;
+  }
+  .item-triple {
+    flex: 3;
+    margin: 10px;
+    text-align: center;
+    color: #f2f2f2;
+    line-height: 1.25em;
+    display: flex;
+    justify-content: center;
+  }
+  .item-quad {
+    flex: 4;
+    /* margin: 5px; */
+    text-align: center;
+    color: #f2f2f2;
+    line-height: 1.25em;
+    display: flex;
+    justify-content: center;
+  }
+  
+  
+  /****** GLOBAL STYLES ******/
+  #overlay {
     width: 100%;
-    margin: auto;
-    overflow: auto;
-    color: #eee;
-    background: #333;
-    flex-direction: column;
-} */
-.btn {
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+  }
+  main h1 {
+    margin: 0 10px;
+    text-align: center;
+    font-size: 5vw;
+  }
+  main h2 {
+    display: block;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 18px 0 12px 0;
+    font-size: 3vw;
+    line-height: 1.5em;
+  }
+  main h3 {
+    margin: 18px 0 12px 0;
+    font-size: 2vw;
+    line-height: normal;
+  }
+  img {
+    width: 100%;
+  }
+  .wrapper {
+    margin: 1em 1.5em;
+    background-color: #333;
+    box-shadow: 5px 5px 5px #000,
+                -1px -1px 5px #aaa;
+    padding: 1em;
+    border-radius: 0.5em;
+    max-height: 400px;
+    overflow: hidden;
+    /* width: 80%; */
+    text-align: center;
+  }
+  .new {
+    border: 5px solid #00e676 !important;
+  }
+  .assigned {
+     border: 5px solid #ffd740 !important;
+  }
+  .closed {
+     border: 5px solid #ff5252 !important;
+  }
+  .btn {
     width: 10vw;
     text-decoration: none;
-    height: 35px;
-    margin: 8px;
+    /* height: 35px; */
+    margin: 0 8px;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -109,13 +130,196 @@ td a {
     cursor: pointer;
     transition: all 400ms;
     background: transparent;
-    align-self: flex-end;
-    box-shadow: 2.5px 2.5px 5px #1d1d1d, -2px -2px 5px #aaa;
-    border:none;
+    box-shadow: 5px 5px 10px #222, -5px -5px 10px #ccc;
   }
   .btn:hover {
-    box-shadow: inset 5px 5px 10px #1d1d1d, inset -2px -2px 10px #aaa;
+    box-shadow: inset 5px 5px 10px #222, inset -5px -5px 10px #ccc;
     transform: translatey(2px);
-    border:none;
+  }
+  .btn i {
+    font-size: 2em;
+    transition: all 400ms;
+    color: #eee;
+  }
+  .btn-round {
+    width: 3em;
+    height: 3em;
+    margin: 1em;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    /* background: aquamarine; */
+  }
+  
+  section p {
+    color: #eee;
   }
 
+/****** HELP QUEUE MAIN PAGE ******/
+
+ /****** HELP TABLE PAGE ******/ 
+  #HelpTable {
+    width: 90%;
+    margin: 1em auto;
+    padding: 1em;
+    color: #eee;
+    /* display: flex; */
+    background-color: #333;
+    box-shadow: 5px 5px 5px #000, -1px -1px 5px #aaa;
+    border-radius: 0.5em;
+    /* overflow-y: auto;
+    overflow-x: hidden; */
+  }
+  
+  table th {
+    padding: 10px;
+    font-size: 1.25em;
+    text-align: center;
+    color: aquamarine;
+  }
+  table th {
+    border: 0.25px solid #666;
+    padding: 8px;
+  }
+  table td a {
+    color: #eee;
+    /* font-weight: 900; */
+    text-decoration: none;
+  }
+  table td {
+    font-size: .75em;
+    border: 0.25px solid #666;
+    padding: 8px;
+  }
+  table td:nth-child(1):hover {
+    background-color: transparent;
+  }
+  table tr:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    cursor: pointer;
+  }
+
+  /****** HELP TICKET PAGE ******/
+
+  /****** HELP TICKET FORM ******/
+#HelpTicketForm {
+    width: 90%;
+    margin: 1em auto;
+    padding: 1em;
+    color: #eee;
+    background-color: #333;
+    box-shadow: 5px 5px 5px #000, -1px -1px 5px #aaa;
+    border-radius: 0.5em;
+}
+#HelpTicketForm .btn {
+    padding: 0.5em 1em;
+    margin: auto;
+    width: fit-content;
+}
+#HelpTicketForm input {
+
+}
+.form-container {
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	height:100vh;
+}
+
+form {
+	flex-basis: 70vh;
+	padding: 2em;
+	background: #fff;
+	font-family:Montserrat;
+	box-shadow:0 0 2em rgba(0,0,0,0.2);
+	border-radius:0.25em;
+	
+}
+
+form h1 {
+    margin-bottom: 1em;
+}
+
+input, select {
+	padding:0.5em;
+	font-size:0.875em;
+	font-family:inherit;
+	background:#f4f4f4;
+	border:1px solid #ccc;
+	border-width:1px 1px 1px 0;
+	border-radius:0;
+}
+
+input:focus,
+select:focus {
+	background:#fff;
+	box-shadow:inset 0.1em 0.1em 0.25em rgba(0,0,0,0.2);
+	outline:0;
+}
+
+.form-field {
+	margin-bottom:1em;
+	display:flex;
+}
+
+.form-field label {
+	flex: 0 1 4em;
+    padding: 1em;
+    background: #fff;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    text-align: center;
+    text-shadow: 0 1px 0 #fff;
+    line-height: 1;
+    min-width: 100px;
+    color: aquamarine;
+    background-color: #333;
+}
+
+.form-field input,
+.form-field select {
+	flex-grow:1;
+}
+
+.nameInput {
+    flex: 0 1 50%;
+}
+
+.form-field label {
+	border-radius:0.25em 0 0 0.25em;
+}
+.input-right input,
+.input-right select,
+.multi-input input:last-child,
+.multi-input select:last-child {
+	border-radius:0 0.25em 0.25em 0;
+}
+.dob-select{
+	flex-basis: 0.2vh;
+	
+}
+.submit-field {
+	flex-direction: row-reverse;
+}
+
+input[type="submit"], input[type="reset"] {
+    flex: 0 1 45%;
+    justify-content: space-around;
+    text-align: center;
+    margin: auto;
+    padding: 0.8em;
+    font-size: 1.2rem;
+    font-family: inherit;
+    text-shadow: 0 1px 0 #fff;
+    background: transparent;
+    border-radius: 0.25em;
+    border: 2px solid aquamarine;
+    transition: 0.3s;
+    cursor: pointer;
+    color: #fff;
+}
+input[type="submit"]:hover, input[type="reset"]:hover {
+	color:aquamarine;
+}
