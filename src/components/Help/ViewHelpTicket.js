@@ -44,22 +44,16 @@ export default class ViewHelpTicket extends Component {
                 </tr>
                 <tr>
                   <td>Status: </td>
-                  {ticket.ticket_status === "IN PROGRESS" ? (
-                    <td className="yellow">{ticket.ticket_status}</td>
-                  ) : ticket.ticket_status === "CLOSED" ? (
-                    <td className="red">{ticket.ticket_status}</td>
-                  ) : (
-                    <td className="green">{ticket.ticket_status}</td>
-                  )}
-                  {/* {ticket.ticket_status ? ticket.ticket_status : "Open"} */}
+                  {this.context.getTicketStatus(ticket.ticket_status)}
                 </tr>
-
                 {ticket.faculty ? (
                   <tr>
                     <td>Assigned to {ticket.faculty}</td>
                     <td>
-                      on
-                      {new Intl.DateTimeFormat("en-US").format(ticket.assigned)}
+                      on{" "}
+                      {new Intl.DateTimeFormat("en-US").format(
+                        new Date(ticket.assigned)
+                      )}
                     </td>
                   </tr>
                 ) : (

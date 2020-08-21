@@ -4,7 +4,9 @@ import TokenService from "../services/token-service";
 const HelpApiService = {
   getUsers() {
     return fetch(`${config.API_ENDPOINT}/users`, {
-      headers: {},
+      headers: {
+        Authorization: `Bearer ${TokenService.getAuthToken()}`,
+      },
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
@@ -20,7 +22,9 @@ const HelpApiService = {
   },
   getTickets() {
     return fetch(`${config.API_ENDPOINT}/help_tickets`, {
-      headers: {},
+      headers: {
+        Authorization: `Bearer ${TokenService.getAuthToken()}`,
+      },
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
@@ -36,14 +40,9 @@ const HelpApiService = {
   },
   getTicket(id) {
     return fetch(`${config.API_ENDPOINT}/help_tickets/${id}`, {
-      headers: {},
-    }).then((res) =>
-      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
-    );
-  },
-  getChatComments(id) {
-    return fetch(`${config.API_ENDPOINT}/help_tickets/${id}/chat_comments`, {
-      headers: {},
+      headers: {
+        Authorization: `Bearer ${TokenService.getAuthToken()}`,
+      },
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );

@@ -4,8 +4,6 @@ import "./Help.css";
 
 export default class HelpTable extends Component {
   static contextType = Context;
-  // this creates a class property called context
-  // this.context
 
   handleClick = (ticketid) => {
     this.props.history.push(`/help/${ticketid}`);
@@ -13,6 +11,7 @@ export default class HelpTable extends Component {
 
   renderHelpTable() {
     return this.context.ticketList.map((ticket) => {
+      console.log(ticket);
       const { ticket_status, subject, question, dueDate, faculty } = ticket;
       const ticketRow = (
         <tr
@@ -20,7 +19,13 @@ export default class HelpTable extends Component {
           key={ticket.id}
           onClick={() => this.handleClick(ticket.id)}
         >
-          <td>{ticket_status}</td>
+          {ticket_status === "IN PROGRESS" ? (
+            <td className="yellow">{ticket_status}</td>
+          ) : ticket_status === "CLOSED" ? (
+            <td className="red">{ticket_status}</td>
+          ) : (
+            <td className="green">{ticket_status}</td>
+          )}
           <td>{subject}</td>
           <td className="question">{question}</td>
           <td>{dueDate}</td>
