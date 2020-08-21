@@ -11,7 +11,7 @@ export default class Header extends Component {
       <header id="Header">
         <h1>Virtual Desk</h1>
         <h3>
-          {this.context.user.first_name}
+          {this.context.user.first_name}&nbsp;
           {this.context.user.last_name}
         </h3>
         <Footer />

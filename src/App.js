@@ -1,7 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import HelpApiService from "./services/help-api-service";
-import Header from "./components/Header/Header";
 import HelpPage from "./components/Help/HelpPage";
 import ViewHelpTicket from "./components/Help/ViewHelpTicket";
 import Welcome from "./components/Welcome/Welcome";
@@ -13,28 +12,11 @@ import Context from "./Context";
 import HelpTicketForm from "./components/Help/HelpTicketForm";
 import Login from "./components/Login/Login";
 
-// export const nullTicket = {
-//   first_name: "",
-//   last_name: "",
-//   subject: "",
-//   question: "",
-//   date_due: "",
-// };
-
 export default class App extends React.Component {
   state = {
     userList: [],
     user: {},
     ticketList: [],
-    // newTicket: {
-    //   student_id: "",
-    //   faculty_id: "",
-    //   subject: "",
-    //   question: "",
-    //   date_due: "",
-    //   date_created: "",
-    //   date_assigned: ""
-    // },
     error: null,
     setUserList: (userList) => {
       this.setState({ userList });
@@ -54,9 +36,6 @@ export default class App extends React.Component {
     addTicket: (newTicket) => {
       return this.state.setTicketList([...this.state.ticketList, newTicket]);
     },
-    // clearTicket: () => {
-    //   this.setState({ newTicket: nullTicket });
-    // },
     setError: (error) => {
       console.error(error);
       this.setState({ error });
@@ -95,12 +74,6 @@ export default class App extends React.Component {
   render() {
     return (
       <Context.Provider value={this.state}>
-        {/* <Route
-          exact
-          path="/"
-          component={TokenService.hasAuthToken() ? HelpPage : Welcome}
-        /> */}
-        <Header />
         <main className="App__main">
           <Route
             exact

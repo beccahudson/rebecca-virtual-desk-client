@@ -1,132 +1,181 @@
-* {
-  box-sizing: border-box;
+#HelpPage {
+  color: #fff;
+  position: fixed;
+  overflow: auto;
+}
+#HelpPage h1 {
+  color: #fff;
+  text-shadow: 1.5px 1.5px 3px #000, -0.5px 0.5px 1.5px #eee;
+  justify-content: left;
+  line-height: 25px;
+  padding: 10px 0;
+}
+#Help {
+  position: relative;
+  background: transparent;
+  color: #fff;
+  margin: 10% auto;
+  overflow: auto;
+  padding: 5%;
+}
+#Help h1 {
+  margin: 5% auto;
+  text-align: left;
+  font-size: 24px;
+}
+#Help .header {
+  align-items: center;
+}
+#Help .btn {
+  color: #eee;
+  box-shadow: 2.5px 2.5px 5px #000, -1px -1px 5px #808dea;
+  padding: 15%;
+  margin: auto 5px;
+}
+#Help .btn:hover {
+  color: #eee;
+  box-shadow: inset 2.5px 2.5px 5px #000, inset -1px -1px 5px #808dea;
+}
+#Help .btn i {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  color: #eee;
+  align-items: center;
+  justify-content: center;
 }
 
-/****** FLEXBOX FORMAT ******/
-.hidden {
+/****** HELP TABLE PAGE ******/
+#Help table,
+#table {
+  width: 100%;
+}
+
+#Help table th {
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  color: #eee;
+  border: 0.25px solid #8587c1;
+}
+#Help table th:nth-child(2),
+#Help table th:nth-child(4),
+#Help table td:nth-child(2),
+#Help table td:nth-child(4) {
   display: none;
 }
-.col {
-  flex-direction: column;
-  display: flex;
+#Help table td a {
+  color: #eee;
+  text-decoration: none;
 }
-.col-wrap {
-  flex-flow: column wrap;
-  display: flex;
+#Help table td {
+  font-size: 12px;
+  border: 0.25px solid #8587c1;
+  padding: 8px;
+  min-height: 40px;
 }
-.row {
-  flex-direction: row;
-  display: inline-flex;
+#Help table tr:hover {
+  box-shadow: 0 0 5px #fff;
 }
-.row-wrap {
-  flex-flow: row wrap;
-  display: inline-flex;
-  /* align-content: center; */
+#Help table td:nth-child(1):hover {
+  background-color: transparent;
 }
-.group {
-  max-width: 1440px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0;
+#Help table tr:hover,
+#Help table td a:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
 }
-.item {
-  flex: 1;
-  margin: auto;
-  text-align: center;
-  color: #f2f2f2;
-  line-height: 18px;
-  display: flex;
-  justify-content: center;
-}
-.item-double {
-  flex: 2;
-  margin: 10px;
-  text-align: center;
-  color: #f2f2f2;
-  line-height: 18px;
-  display: flex;
-  justify-content: center;
-}
-.item-triple {
-  flex: 3;
-  margin: 10px;
-  text-align: center;
-  color: #f2f2f2;
-  line-height: 18px;
-  display: flex;
-  justify-content: center;
-}
-.item-quad {
-  flex: 4;
-  /* margin: 5px; */
-  text-align: center;
-  color: #f2f2f2;
-  line-height: 18px;
-  display: flex;
-  justify-content: center;
+#Help table .question {
+  max-width: 300px;
 }
 
-/****** GLOBAL STYLES ******/
-#overlay {
+/****** HELP TICKET FORM ******/
+#ticketFormPage {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  background: transparent;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 2;
+  margin: 0;
 }
-section h1 {
-  margin: 20px;
+#ticketFormPage section {
   text-align: center;
+}
+#ticketFormPage h1 {
+  align-self: center;
   font-size: 30px;
+  margin: 5%;
 }
-section h2 {
-  display: block;
-  text-align: center;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #fff;
-  margin: 18px 0 12px 0;
-  font-size: 22px;
-  line-height: 20px;
+#TicketForm {
+  width: 90%;
+  margin: 10% auto;
+  position: relative;
 }
-section h3 {
-  margin: 18px 0 12px 0;
-  font-size: 20px;
-  line-height: normal;
+#ticketFormPage .wrapper {
+  position: relative;
+  display: flex;
+  background: transparent;
+  color: white;
+  margin: auto;
+  padding: 5% 0;
 }
-section p {
-  font-size: 20px;
-  color: #eee;
+#TicketForm .form-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
-img {
+#TicketForm form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;
+  margin: auto;
+}
+#TicketForm label {
+  line-height: 25px;
+}
+#TicketForm .form-field {
   width: 100%;
 }
-.wrapper {
-  margin: 1em auto;
-  background-color: #333;
-  box-shadow: 5px 5px 5px #000, -1px -1px 5px #aaa;
-  padding: 1em;
-  border-radius: 0.5em;
-  min-height: 300px;
-  max-height: 500px;
-  overflow: hidden;
-  text-align: center;
+#TicketForm input {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  color: #ccc;
+  text-indent: 5px;
+  font-size: 12px;
 }
-.new {
-  border: 5px solid #00e676 !important;
+#TicketForm input:focus {
+  box-shadow: 0 0 5px #fff;
+  outline: #ddd;
 }
-.assigned {
-  border: 5px solid #ffd740 !important;
+#TicketForm input::placeholder {
+  color: #bbb;
 }
-.closed {
-  border: 5px solid #ff5252 !important;
+#TicketForm input[type="text"],
+#TicketForm input[type="date"] {
+  width: 100%;
+  height: 25px;
+  padding: 0px;
+  margin-bottom: 11px;
 }
-.btn {
+#TicketForm input:-webkit-autofill,
+#TicketForm input:-webkit-autofill:hover,
+#TicketForm input:-webkit-autofill:focus,
+#TicketForm input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #fff;
+}
+#TicketForm .submit-field {
+  display: flex;
+  flex-direction: row;
+}
+#TicketForm .btn {
   text-decoration: none;
+  width: 50%;
   margin: 0 8px;
+  padding: 3%;
+  border: none;
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -134,235 +183,149 @@ img {
   cursor: pointer;
   transition: all 400ms;
   background: transparent;
-  box-shadow: 5px 5px 10px #222, -5px -5px 10px #ccc;
+  box-shadow: 2.5px 2.5px 5px #222, -2.5px -2.5px 5px #808dea;
 }
-.btn:hover {
-  box-shadow: inset 5px 5px 10px #222, inset -5px -5px 10px #ccc;
+#TicketForm .btn:hover {
+  box-shadow: inset 2.5px 2.5px 5px #222, inset -2.5px -2.5px 5px #808dea;
   transform: translatey(2px);
 }
-.btn i {
-  font-size: 2em;
-  transition: all 400ms;
-  color: #eee;
-}
-.btn-round {
-  width: 3em;
-  height: 3em;
-  margin: 1em;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  cursor: pointer;
-}
 
-/****** HELP TICKET PAGE ******/
-#HelpPage {
-  color: #eee;
-  background: #333;
-}
-#HelpPage h1 {
-  color: #eee;
-  text-shadow: 1.5px 1.5px 3px #000, -0.5px 0.5px 1.5px #eee;
-  justify-content: left;
-  line-height: 25px;
-  padding: 10px 0;
-}
-#HelpPage .header {
-  margin: 0 auto 0.5em auto;
-}
-#HelpPage .header {
-  align-items: center;
-}
-#HelpPage .btn {
-  color: #02fefe;
-  box-shadow: 2.5px 2.5px 5px #000, -1px -1px 5px #ccc;
-}
-#HelpPage .btn i {
+/****** VIEW HELP TICKET ******/
+#ticketPage {
   display: flex;
-  width: 50px;
-  height: 50px;
-  color: #02fefe;
-  align-items: center;
-  justify-content: center;
-}
-
-/****** HELP TABLE PAGE ******/
-#HelpPage table {
+  position: fixed;
+  flex-direction: column;
+  background: transparent;
   width: 100%;
-  color: #eee;
+  height: 100%;
+  margin: 0;
+}
+#ticketPage section {
+  text-align: center;
+}
+#ticketPage h1 {
+  color: #fff;
+  height: 25px;
+  margin: 5% auto;
+}
+#ticketPage .h1 {
+  color: #fff;
+  text-align: center;
+  font-size: 48px;
+  margin: 0;
 }
 
-table th {
+#TicketInfo {
+  width: 90%;
+  margin: 1.5% auto;
+  position: relative;
+}
+
+#TicketInfo table {
+  width: 100%;
+  border-color: #fff;
+  margin: auto;
+}
+
+#TicketInfo table th {
+  width: 100%;
   padding: 10px;
-  font-size: 1.25em;
+  font-size: 28px;
   text-align: center;
-  color: #02fefe;
-  border: 0.25px solid #666;
-}
-table th:nth-child(2),
-table th:nth-child(4),
-table td:nth-child(2),
-table td:nth-child(4) {
-  display: none;
-}
-table td a {
   color: #eee;
-  /* font-weight: 900; */
+  border: 0.25px solid #8587c1;
+}
+#TicketInfo tbody {
+  text-align: left;
+}
+#TicketInfo table td a {
+  color: #eee;
   text-decoration: none;
 }
-table td {
-  font-size: 0.75em;
-  border: 0.25px solid #666;
+#TicketInfo table td {
+  width: 50%;
+  font-size: 18px;
   padding: 8px;
   min-height: 40px;
+  border: 0.25px solid #8587c1;
 }
-table td:nth-child(1):hover {
+#TicketInfo table tr:hover {
+  box-shadow: 0 0 5px #fff;
+}
+#TicketInfo table td:nth-child(1):hover {
   background-color: transparent;
 }
-table tr:hover,
-table td a:hover {
+#TicketInfo table tr:hover,
+#TicketInfo table td a:hover {
   background-color: rgba(255, 255, 255, 0.25);
   cursor: pointer;
 }
-
-/****** HELP TICKET FORM ******/
-/* #HelpTicketForm {
-    width: 90%;
-    margin: 1em auto;
-    padding: 1em;
-    color: #eee;
-    background-color: #333;
-    box-shadow: 5px 5px 5px #000, -1px -1px 5px #aaa;
-    border-radius: 0.5em;
+#TicketInfo .pick-up-ticket {
+  text-align: center;
 }
-#HelpTicketForm .btn {
-    padding: 0.5em 1em;
-    margin: auto;
-    width: fit-content;
+#ticketPage .btn {
+  color: #eee;
+  font-size: 18px;
+  text-decoration: none;
+  margin: 0 auto;
+  padding: 2%;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 400ms;
+  background: transparent;
+  box-shadow: 2.5px 2.5px 5px #222, -2.5px -2.5px 5px #808dea;
 }
-#HelpTicketForm input {
-
-}
-.form-container {
-	display:flex;
-	justify-content: center;
-	align-items: center;
-	height:100vh;
-}
-
-form {
-	flex-basis: 70vh;
-	padding: 2em;
-	background: #fff;
-	font-family:Montserrat;
-	box-shadow:0 0 2em rgba(0,0,0,0.2);
-	border-radius:0.25em;
-	
-}
-
-form h1 {
-    margin-bottom: 1em;
-}
-
-input, select {
-	padding:0.5em;
-	font-size:0.875em;
-	font-family:inherit;
-	background:#f4f4f4;
-	border:1px solid #ccc;
-	border-width:1px 1px 1px 0;
-	border-radius:0;
-}
-
-input:focus,
-select:focus {
-	background:#fff;
-	box-shadow:inset 0.1em 0.1em 0.25em rgba(0,0,0,0.2);
-	outline:0;
-}
-
-.form-field {
-	margin-bottom:1em;
-	display:flex;
-}
-
-.form-field label {
-	flex: 0 1 4em;
-    padding: 1em;
-    background: #fff;
-    border: 1px solid #ccc;
-    font-size: 1em;
-    text-align: center;
-    text-shadow: 0 1px 0 #fff;
-    line-height: 1;
-    min-width: 100px;
-    color: #02fefe;
-    background-color: #333;
-}
-
-.form-field input,
-.form-field select {
-	flex-grow:1;
-}
-
-.nameInput {
-    flex: 0 1 50%;
-}
-
-.form-field label {
-	border-radius:0.25em 0 0 0.25em;
-}
-.input-right input,
-.input-right select,
-.multi-input input:last-child,
-.multi-input select:last-child {
-	border-radius:0 0.25em 0.25em 0;
-}
-.dob-select{
-	flex-basis: 0.2vh;
-	
-}
-.submit-field {
-	flex-direction: row-reverse;
-}
-
-input[type="submit"], input[type="reset"] {
-    flex: 0 1 25%;
-    justify-content: space-around;
-    text-align: center;
-    margin: auto;
-    padding: 0.8em;
-    font-size: 1.2rem;
-    font-family: inherit;
-    text-shadow: 0 1px 0 #fff;
-    background: transparent;
-    border-radius: 0.25em;
-    border: 2px solid #02fefe;
-    transition: 0.3s;
-    cursor: pointer;
-    color: #fff;
-}
-input[type="submit"]:hover, input[type="reset"]:hover {
-	color:#02fefe;
-} */
 
 /****** ALL LARGE MOBILE STYLES FROM 500px - 768px ******/
 @media screen and (min-width: 500px) {
+  #Help h1 {
+    font-size: 32px;
+  }
 }
 
 /****** ALL TABLET STYLES FROM 769px - 1024px ******/
 @media screen and (min-width: 769px) {
-  table th:nth-child(2),
-  table th:nth-child(4),
-  table td:nth-child(2),
-  table td:nth-child(4) {
+  #Help table th:nth-child(2),
+  #Help table th:nth-child(4),
+  #Help table td:nth-child(2),
+  #Help table td:nth-child(4) {
     display: table-cell;
+  }
+  #Help,
+  #TicketForm {
+    width: 75%;
+  }
+  #Help form {
+    width: 50%;
   }
 }
 
 /****** ALL LAPTOP STYLES FROM 1025px - 1438px ******/
 @media screen and (min-width: 1025px) {
+  #Help h1 {
+    font-size: 48px;
+  }
+  #Help .btn {
+    padding: 25%;
+    margin: auto 0;
+  }
+  #Help table td {
+    font-size: 16px;
+  }
+  #TicketForm {
+    margin: 5% auto;
+  }
+  #ticketFormPage h1 {
+    font-size: 48px;
+    margin: 2%;
+  }
+  #TicketInfo {
+    width: 50%;
+  }
 }
 
 /****** ALL LARGE LAPTOP STYLES FROM 1439px - 1600px ******/

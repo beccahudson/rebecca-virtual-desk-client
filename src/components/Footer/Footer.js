@@ -11,7 +11,7 @@ export default class Footer extends Component {
           <Link to="/">HOME</Link>
         </div>
         <div className="itemTriple">
-          <Link to="#">CHAT</Link>
+          <img src="/images/portrait.jpg"></img>
         </div>
         <div className="itemTriple">
           {TokenService.hasAuthToken() ? (

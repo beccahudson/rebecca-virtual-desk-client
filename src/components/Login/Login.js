@@ -32,53 +32,59 @@ export default class Login extends Component {
 
   render() {
     return !this.context.user.email ? (
-      <section id="Login">
-        <div className="boxEffect wrapper">
-          <div className="form__signIn">
-            <h1>Login</h1>
-            <form onSubmit={this.handleSubmitJwtAuth}>
-              <p>
-                <strong>Student Demo Credentials:</strong>
-                fake@student.email.com / password
-              </p>
-              <p>
-                <strong>Teacher Demo Credentials:</strong>
-                fake@teacher.email.com / password
-              </p>
-              <div className="form-field multi-input">
-                <label htmlFor="email" className="hidden">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  className="emailInput"
-                  name="email"
-                  id="email"
-                  placeholder="EMAIL"
-                />
-              </div>
+      <div id="loginPage">
+        <h1>Welcome to</h1>
+        <h2 className="h1">Virtual Desk</h2>
+        <section id="Login">
+          <div className="wrapper">
+            <div className="form-container">
+              <h2>Login</h2>
+              <form onSubmit={this.handleSubmitJwtAuth}>
+                <p>
+                  <strong>Student Demo: </strong>
+                  fake@student.email.com / password
+                </p>
+                <p>
+                  <strong>Teacher Demo: </strong>
+                  fake@teacher.email.com / password
+                </p>
+                <div className="form-field multi-input">
+                  <label htmlFor="email" className="hidden">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    className="emailInput"
+                    name="email"
+                    id="email"
+                    placeholder="email"
+                    required
+                  />
+                </div>
 
-              <div className="form-field multi-input">
-                <label htmlFor="password" className="hidden">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  className="passwordInput"
-                  name="password"
-                  id="password"
-                  placeholder="PASSWORD"
-                />
-              </div>
+                <div className="form-field multi-input">
+                  <label htmlFor="password" className="hidden">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    className="passwordInput"
+                    name="password"
+                    id="password"
+                    placeholder="password"
+                    required
+                  />
+                </div>
 
-              <div className="form-field submit-field">
-                <input className="btn" type="submit" value="Login" />
-                <input className="btn" type="reset" value="Reset" />
-              </div>
-            </form>
+                <div className="form-field submit-field">
+                  <input className="btn" type="submit" value="Login" />
+                  <input className="btn" type="reset" value="Reset" />
+                </div>
+              </form>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     ) : (
       <Redirect to="/" />
     );

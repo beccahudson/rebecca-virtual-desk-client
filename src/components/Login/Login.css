@@ -1,119 +1,105 @@
-#Header h1 {
-  color: #02fefe;
-}
-#Header h3,
-#Header footer {
-  display: none;
-}
-#Login .wrapper {
-  width: 90%;
-}
-#Login section {
+#loginPage {
   display: flex;
+  position: fixed;
+  flex-direction: column;
+  background: transparent;
   width: 100%;
   height: 100%;
   margin: 0;
 }
-#Login h1 {
-  font-weight: 300;
-  margin-top: 33px;
-  margin-bottom: 18px;
-  font-family: "Noto Sans JP", sans-serif;
+#loginPage section {
+  text-align: center;
 }
-#Login input {
-  background-color: transparent;
-  border: 1px solid #02fefe;
-  color: #02fefe;
-  text-indent: 5px;
-  border-radius: 5%;
-  font-size: 0.7em;
+#loginPage h1 {
+  color: #fff;
+  height: 25px;
+  margin: 5% auto;
 }
-#Login input:focus {
-  box-shadow: 0 0 5px #02fefe;
-  outline: #02fefe;
+#loginPage .h1 {
+  color: #fff;
+  text-align: center;
+  font-size: 48px;
+  margin: 0;
 }
-#Login input::placeholder {
-  color: #02fefe;
-}
-#Login .boxEffect {
+#Login {
+  width: 90%;
+  margin: 25% auto;
   position: relative;
 }
-#Login .boxEffect:before,
-#Login .boxEffect:after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-  -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-  top: 0;
-  bottom: 0;
-  left: 10px;
-  right: 10px;
-  -moz-border-radius: 100px / 10px;
-  border-radius: 100px / 10px;
-}
-#Login .boxEffect:after {
-  right: 10px;
-  left: auto;
-  -webkit-transform: skew(8deg) rotate(3deg);
-  -moz-transform: skew(8deg) rotate(3deg);
-  -ms-transform: skew(8deg) rotate(3deg);
-  -o-transform: skew(8deg) rotate(3deg);
-  transform: skew(8deg) rotate(3deg);
-}
-
-#Login form {
+#loginPage .wrapper {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* #Login .form {
-  display: flex;
-  background: rgb(167, 246, 236);
-  background: linear-gradient(
-    0deg,
-    rgba(113, 203, 241, 100) 0%,
-    rgba(112, 140, 219, 100) 100%
-  );
+  background: transparent;
   color: white;
   margin: auto;
-  height: 305px;
-  width: 300px;
-  background-color: red;
-} */
-#Login .form__signIn {
-  display: flex;
-  flex-direction: column;
+  padding: 5% 0;
 }
-#Login .form .form__signIn {
+#Login .form-container {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 #Login h2 {
   align-self: center;
+  font-size: 30px;
+  margin: 5%;
 }
 #Login p {
   color: #eee;
+  font-size: 12px;
 }
-
-#Login p {
-  color: #eee;
-  font-size: 0.5em;
+#Login p strong {
+  display: block;
+  font-size: 14px;
 }
-#Login .btn {
-  color: white;
-  border: none;
-  border-radius: 5%;
+#Login form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;
+  margin: auto;
+}
+#Login .form-field {
+  width: 100%;
+}
+#Login input {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  color: #ccc;
+  text-indent: 5px;
+  font-size: 12px;
+}
+#Login input:focus {
+  box-shadow: 0 0 5px #fff;
+  outline: #ddd;
+}
+#Login input::placeholder {
+  color: #bbb;
+}
+#Login input[type="password"],
+#Login input[type="email"] {
+  width: 100%;
+  height: 25px;
   padding: 0px;
-  font-size: 0.7em;
-  outline: none;
+  margin-bottom: 11px;
+}
+#Login input:-webkit-autofill,
+#Login input:-webkit-autofill:hover,
+#Login input:-webkit-autofill:focus,
+#Login input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #fff;
+}
+#Login .submit-field {
+  display: flex;
+  flex-direction: row;
 }
 #Login .btn {
   text-decoration: none;
+  width: 50%;
   margin: 0 8px;
+  padding: 3%;
+  border: none;
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -121,81 +107,49 @@
   cursor: pointer;
   transition: all 400ms;
   background: transparent;
-  box-shadow: 5px 5px 10px #222, -5px -5px 10px #ccc;
+  box-shadow: 2.5px 2.5px 5px #222, -2.5px -2.5px 5px #808dea;
 }
 #Login .btn:hover {
-  box-shadow: inset 5px 5px 10px #222, inset -5px -5px 10px #ccc;
+  box-shadow: inset 2.5px 2.5px 5px #222, inset -2.5px -2.5px 5px #808dea;
   transform: translatey(2px);
-}
-#Login .btn a {
-  color: #02fefe;
-}
-
-#Login input[type="password"],
-#Login input[type="email"],
-#Login input[type="login"],
-#Login input[type="reset"] {
-  height: 25px;
-  width: 184px;
-  padding: 0px;
-  margin-bottom: 11px;
-}
-
-#Login input[placeholder="Email"],
-#Login input[placeholder="Password"] {
-  width: 35%;
-}
-
-input[placeholder="Email"] {
-  margin-right: 11px;
-}
-
-#Login .btn {
-  height: 27px;
-  width: 186px;
-}
-
-#Login .btn {
-  cursor: pointer;
-}
-
-#Login input:-webkit-autofill,
-#Login input:-webkit-autofill:hover,
-#Login input:-webkit-autofill:focus,
-#Login input:-webkit-autofill:active {
-  transition: background-color 5000s ease-in-out 0s;
-  -webkit-text-fill-color: #02fefe;
 }
 
 /******************
 * Mobile Styling
 *******************/
-@media only screen and (max-width: 600px) {
-  #Login .form {
-    flex-wrap: wrap;
-    /* height: 610px;
-    width: 242px; */
-    display: flex;
-    align-content: space-evenly;
-    justify-content: center;
-  }
-  #Login .form__signIn {
+@media only screen and (min-width: 500px) {
+  #Login .form-container {
+    width: 80%;
     margin: auto;
-    font-size: 0.8em;
-  }
-
-  #Login input[placeholder="Email"],
-  #Login input[placeholder="Password"] {
-    width: 85px;
-  }
-  #Login button {
-    /* font-size: .8em; */
   }
   #Login h2 {
-    font-size: 20px;
-    margin-top: 0px;
+    margin: 0 5% 5% 5%;
   }
-  #Login p {
-    font-size: 16px;
+}
+@media only screen and (min-width: 769px) {
+  #Login {
+    width: 75%;
+    margin: 15% auto;
+  }
+  #Login input[type="password"],
+  #Login input[type="email"] {
+    height: 40px;
+    padding: 0px;
+  }
+  #Login .btn {
+    padding: 4%;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  #loginPage h1 {
+    font-size: 40px;
+    margin: 2.5% auto;
+  }
+  #loginPage .h1 {
+    font-size: 56px;
+  }
+  #Login {
+    width: 50%;
+    margin: 10% auto;
   }
 }

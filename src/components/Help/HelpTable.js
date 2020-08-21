@@ -22,7 +22,7 @@ export default class HelpTable extends Component {
         >
           <td>{ticket_status}</td>
           <td>{subject}</td>
-          <td>{question}</td>
+          <td className="question">{question}</td>
           <td>{dueDate}</td>
           <td>{faculty}</td>
         </tr>
