@@ -1,18 +1,21 @@
-import React, { Component } from 'react';
-import Context from '../../Context';
-import '../../App.css';
-
+import React, { Component } from "react";
+import Context from "../../Context";
+import Footer from "../Footer/Footer";
+import "../../App.css";
 
 export default class Header extends Component {
   static contextType = Context;
 
   render() {
-    const userName = this.context.student.first_name || {}
     return (
-      <header id='Header'>
-        <h1>{userName}'s Virtual Desk</h1>
-        <img src="/images/portait.jpg" alt="" />
+      <header id="Header">
+        <h1>Virtual Desk</h1>
+        <h3>
+          {this.context.user.first_name}
+          {this.context.user.last_name}
+        </h3>
+        <Footer />
       </header>
     );
   }
-};
+}

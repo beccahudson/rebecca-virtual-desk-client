@@ -1,99 +1,76 @@
-import config from '../config'
+import config from "../config";
+import TokenService from "../services/token-service";
 
 const HelpApiService = {
   getUsers() {
     return fetch(`${config.API_ENDPOINT}/users`, {
-      headers: {
-      },
-    })
-      .then(res =>
-        (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
-      )
+      headers: {},
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
   },
-  getUser(id) {
-    return fetch(`${config.API_ENDPOINT}/users/${id}`, {
+  getUser() {
+    return fetch(`${config.API_ENDPOINT}/users/user`, {
       headers: {
+        Authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
-    })
-      .then(res =>
-        (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
-      )
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
   },
   getTickets() {
     return fetch(`${config.API_ENDPOINT}/help_tickets`, {
+      headers: {},
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
+  },
+  getMyTickets() {
+    return fetch(`${config.API_ENDPOINT}/help_tickets/by_user`, {
       headers: {
+        Authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
-    })
-      .then(res =>
-        (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
-      )
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
   },
   getTicket(id) {
     return fetch(`${config.API_ENDPOINT}/help_tickets/${id}`, {
-      headers: {
-      },
-    })
-      .then(res =>
-        (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
-      )
+      headers: {},
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
   },
   getChatComments(id) {
     return fetch(`${config.API_ENDPOINT}/help_tickets/${id}/chat_comments`, {
-      headers: {
-      },
-    })
-      .then(res =>
-        (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
-      )
+      headers: {},
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
   },
-  postHelpTicket(first_name, last_name, subject, question, date_due) {
+  postHelpTicket(newTicket) {
     return fetch(`${config.API_ENDPOINT}/help_tickets`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'content-type': 'application/json',
+        "content-type": "application/json",
+        Authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
-      body: JSON.stringify({
-        first_name,
-        last_name,
-        subject,
-        question,
-        date_due,
-      }),
-    })
-      .then(res =>
-        (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
-      )
+      body: JSON.stringify(newTicket),
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
   },
-  postChatComment(content, ticket_id, user_id) {
-    return fetch(`${config.API_ENDPOINT}/chat_comments`, {
-      method: 'POST',
+  claimHelpTicket(ticketId) {
+    return fetch(`${config.API_ENDPOINT}/help_tickets/${ticketId}`, {
+      method: "PATCH",
       headers: {
-        'content-type': 'application/json',
+        "content-type": "application/json",
+        Authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
-      body: JSON.stringify({
-        content,
-        ticket_id,
-        user_id,
-      }),
-    })
-      .then(res =>
-        (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
-      )
-  }
-}
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
+  },
+};
 
 export default HelpApiService;

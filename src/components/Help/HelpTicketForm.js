@@ -2,31 +2,34 @@ import React, { Component } from "react";
 import Context from "../../Context";
 import "./Help.css";
 
+import HelpService from "../../services/help-api-service";
+
 export default class HelpTicketForm extends Component {
   static contextType = Context;
   /* state for inputs etc... */
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    let newTicket = {
+      subject: e.target.subject.value,
+      question: e.target.question.value,
+      date_due: e.target.date_due.value,
+    };
+    HelpService.postHelpTicket(newTicket)
+      .then((ticket) => this.context.addTicket(ticket))
+      .then(() => this.props.history.push("/"));
+  };
+
   render() {
     return (
-      <form id="HelpTicketForm">
+      <form id="HelpTicketForm" onSubmit={this.handleSubmit}>
         <h1>Submit New Help Ticket</h1>
-        <div class="form-field multi-input">
-          <label for="name">Name</label>
-          <input
-            type="text"
-            className="nameInput"
-            name="first-name"
-            id="name"
-            placeholder="first name"
-          />
-          <input type="text" className="nameInput" placeholder="last name" />
-        </div>
-        <div class="form-field input-right">
-          <label for="subject">Subject</label>
+        <div className="form-field input-right">
+          <label htmlFor="subject">Subject</label>
           <input type="text" name="subject" id="subject" placeholder="Math" />
         </div>
-        <div class="form-field input-right">
-          <label for="question">Question</label>
+        <div className="form-field input-right">
+          <label htmlFor="question">Question</label>
           <input
             type="text"
             name="question"
@@ -34,21 +37,17 @@ export default class HelpTicketForm extends Component {
             placeholder="What is Math?"
           />
         </div>
-        <div class="form-field multi-input">
-          <label for="dueDate">Due date</label>
-          <select name="dueDate" id="dueDate" class="dueDate-select">
-            <option selected disabled>
-              dd
-            </option>
-          </select>
-
-          <select name="dob_month" id="dob">
-            <option selected disabled>
-              mm
-            </option>
-          </select>
+        <div className="form-field multi-input">
+          <label htmlFor="date_due">Due date</label>
+          <input
+            type="date"
+            id="date_due"
+            name="date_due"
+            placeholder="DD-MM-YYYY"
+            aria-label="Due Date"
+          />
         </div>
-        <div class="form-field submit-field">
+        <div className="form-field submit-field">
           <input type="submit" value="Raise Your Hand!" />
           <input type="reset" value="Reset" />
         </div>

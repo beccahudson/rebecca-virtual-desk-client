@@ -1,151 +1,126 @@
-import React from 'react';
-import { Route } from 'react-router-dom';
-import HelpApiService from './services/help-api-service';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-import HelpPage from './components/Help/HelpPage';
-import ViewHelpTicket from './components/Help/ViewHelpTicket';
-import Dashboard from './components/Dashboard/Dashboard';
-// import Faq from './components/FaqList/FaqList';
-// import FaqApiService from './services/faq-api-service';
-// import Notes from './components/Notes/NotesPage';
-// import NoteApiService from './services/note-api-service';
-// import StudyHall from './components/StudyHall/StudyHallPage';
-// import StudyApiService from './services/study-api-service';
-// import { library } from '@fortawesome/fontawesome-svg-core';
-// import {  } from '@fortawesome/free-regular-svg-icons';
-import './App.css';
-import Context from './Context';
-import HelpTicketForm from './components/Help/HelpTicketForm';
+import React from "react";
+import { Route } from "react-router-dom";
+import HelpApiService from "./services/help-api-service";
+import Header from "./components/Header/Header";
+import HelpPage from "./components/Help/HelpPage";
+import ViewHelpTicket from "./components/Help/ViewHelpTicket";
+import Welcome from "./components/Welcome/Welcome";
 
-// library.add(far, faComments, faHandPaper, faEdit, faStickyNote, faClock, faDoorClosed, faLaptopHouse, faStickyNote, faExternalLinkAlt, faSignOutAlt, faSignInAlt, faTimes, faPlus, faChalkboardTeacher, faTrashAlt, faQuestionCircle, faSearch, faCogs
-// )
+import TokenService from "./services/token-service";
 
-export const nullTicket = {
-  first_name: '',
-  last_name: '',
-  subject: '',
-  question: '',
-  date_due: '',
-  ticket_status: null,
-}
+import "./App.css";
+import Context from "./Context";
+import HelpTicketForm from "./components/Help/HelpTicketForm";
+import Login from "./components/Login/Login";
 
-export const nullChat = {  
-  content: ''
-}
+// export const nullTicket = {
+//   first_name: "",
+//   last_name: "",
+//   subject: "",
+//   question: "",
+//   date_due: "",
+// };
 
 export default class App extends React.Component {
   state = {
     userList: [],
-    user: {},		
-    student: {
-      first_name: 'Charlie',
-      last_name: 'Bloggs',
-      email: 'fake@student.email.com',
-      grade: '10'
-    },
+    user: {},
     ticketList: [],
-    ticket: nullTicket,
-    chatList: [],
-    chat: nullChat,
+    // newTicket: {
+    //   student_id: "",
+    //   faculty_id: "",
+    //   subject: "",
+    //   question: "",
+    //   date_due: "",
+    //   date_created: "",
+    //   date_assigned: ""
+    // },
     error: null,
     setUserList: (userList) => {
-      this.setState({userList})
+      this.setState({ userList });
     },
     setUser: (user) => {
-      this.setState({user})
-    },
-    setCurrentStudent: (student) => {
-      this.setState({student})
+      return this.setState({ user });
     },
     setTicketList: (ticketList) => {
-      this.setState({ticketList})
+      this.setState({ ticketList });
     },
-    setChatList: (chatList) => {
-      this.setState({chatList})
+    ticketClaimed: (ticketId, newTicket) => {
+      const ticketList = this.state.ticketList.map((t) =>
+        t.id === ticketId ? newTicket : t
+      );
+      this.state.setTicketList(ticketList);
     },
-    addTicket: (ticket) => {
-      this.setTicketList([
-        ...this.state.ticketList,
-        ticket
-      ])
+    addTicket: (newTicket) => {
+      return this.state.setTicketList([...this.state.ticketList, newTicket]);
     },
-    addChat: (chat) => {
-      this.setChatList([
-        ...this.state.chatList,
-        chat
-      ])
-    },
-    clearTicket: () => {
-      this.setState({ ticket: nullTicket })
-    },
-    clearChat: () => {
-      this.setState({ chat: nullChat })
-    },
-    setError: (error)  => {
-      console.error(error)
-      this.setState({ error })
+    // clearTicket: () => {
+    //   this.setState({ newTicket: nullTicket });
+    // },
+    setError: (error) => {
+      console.error(error);
+      this.setState({ error });
     },
     clearError: () => {
-      this.setState({ error: null })
-    }
-  };  
-  
+      this.setState({ error: null });
+    },
+    getData: () => {
+      HelpApiService.getUsers()
+        .then(this.state.setUserList)
+        .catch(this.state.setError);
+
+      if (TokenService.hasAuthToken()) {
+        HelpApiService.getUser()
+          .then(this.state.setUser)
+          .then(() => {
+            if (this.state.user.type === "student") {
+              HelpApiService.getMyTickets()
+                .then(this.state.setTicketList)
+                .catch(this.state.setError);
+            } else {
+              HelpApiService.getTickets()
+                .then(this.state.setTicketList)
+                .catch(this.state.setError);
+            }
+          })
+          .catch(this.state.setError);
+      }
+    },
+  };
+
   componentDidMount() {
-    
-    HelpApiService.getUsers()
-      .then(this.state.setUserList)
-      .catch(this.state.setError);
-
-    HelpApiService.getUser()
-      .then(this.state.setCurrentStudent)
-      .catch(this.state.setError);
-
-    HelpApiService.getUser()
-      .then(this.state.setUser)
-      .catch(this.state.setError);
-
-    HelpApiService.getTickets()
-      .then(this.state.setTicketList)
-      .catch(this.state.setError);
-
-    /*HelpApiService.getChatComments(ticket_id)
-      .then(this.state.setChatList)
-      .catch(this.state.setError);*/
-}
-
- 
+    this.state.getData();
+  }
 
   render() {
     return (
       <Context.Provider value={this.state}>
-          <Header />
-          <main className='App__main'>
-            <Route 
-              exact
-              path='/'
-              component={Dashboard}
-            />
-            <Route 
-              exact
-              path='/help'
-              component={HelpPage}
-            />
-            <Route 
-              exact
-              path='/help/newticket'
-              component={HelpTicketForm}
-            />
-            <Route
-              exact
-              path="/help/:ticketid"
-              component={ViewHelpTicket}
-            />              
-          </main>
-          <Footer />
+        {/* <Route
+          exact
+          path="/"
+          component={TokenService.hasAuthToken() ? HelpPage : Welcome}
+        /> */}
+        <Header />
+        <main className="App__main">
+          <Route
+            exact
+            path="/"
+            component={TokenService.hasAuthToken() ? HelpPage : Welcome}
+          />
+          <Route path="/login" component={Login} />
+          <Route
+            path="/logout"
+            render={(rprops) => {
+              TokenService.clearAuthToken();
+              this.state.setUser({});
+              rprops.history.push("/");
+              return <></>;
+            }}
+          />
+          <Route exact path="/newticket" component={HelpTicketForm} />
+          <Route exact path="/help/:ticketid" component={ViewHelpTicket} />
+        </main>
       </Context.Provider>
-    )
+    );
   }
 }
-
-
