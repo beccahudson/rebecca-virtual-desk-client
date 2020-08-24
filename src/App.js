@@ -99,7 +99,15 @@ export default class App extends React.Component {
             path="/"
             component={TokenService.hasAuthToken() ? HelpPage : Welcome}
           />
+
+          <Route
+            exact
+            path="/home"
+            component={TokenService.hasAuthToken() ? HelpPage : Welcome}
+          />
+
           <Route path="/login" component={Login} />
+
           <Route
             path="/logout"
             render={(rprops) => {
@@ -109,7 +117,9 @@ export default class App extends React.Component {
               return <></>;
             }}
           />
+
           <Route exact path="/newticket" component={HelpTicketForm} />
+
           <Route exact path="/help/:ticketid" component={ViewHelpTicket} />
         </main>
       </Context.Provider>
