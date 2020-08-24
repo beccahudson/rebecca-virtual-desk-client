@@ -19,17 +19,20 @@ export default class HelpTable extends Component {
           key={ticket.id}
           onClick={() => this.handleClick(ticket.id)}
         >
-          {ticket_status === "IN PROGRESS" ? (
-            <td className="yellow">{ticket_status}</td>
-          ) : ticket_status === "CLOSED" ? (
-            <td className="red">{ticket_status}</td>
-          ) : (
-            <td className="green">{ticket_status}</td>
-          )}
+          {this.context.getTicketStatus(ticket_status)}
           <td>{subject}</td>
           <td className="question">{question}</td>
           <td>{dueDate}</td>
-          <td>{faculty}</td>
+          <td>
+            {ticket_status === "IN PROGRESS"
+              ? this.context.getTicketFaculty(faculty)
+              : ticket_status === "CLOSED"
+              ? `Ticket ${ticket_status.toLowerCase()} on 
+                ${new Intl.DateTimeFormat("en-US").format(
+                  new Date(ticket.closed)
+                )}`
+              : ""}
+          </td>
         </tr>
       );
       return ticketRow;

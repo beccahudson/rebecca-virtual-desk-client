@@ -267,8 +267,6 @@ section p {
   height: 75px;
   width: 75px;
   margin: 0.5em auto;
-  border-radius: 50%;
-  border: 2px solid #fff;
   align-self: center;
   display: block;
 }
@@ -304,20 +302,4 @@ section p {
 #Footer img {
   width: 50px;
   height: 50px;
-}
-
-/****** ALL LARGE MOBILE STYLES FROM 500px - 768px ******/
-@media screen and (min-width: 500px) {
-}
-
-/****** ALL TABLET STYLES FROM 769px - 1024px ******/
-@media screen and (min-width: 769px) {
-}
-
-/****** ALL LAPTOP STYLES FROM 1025px - 1438px ******/
-@media screen and (min-width: 1025px) {
-}
-
-/****** ALL LARGE LAPTOP STYLES FROM 1439px - 1600px ******/
-@media screen and (min-width: 1439px) and (max-width: 1600px) {
 }

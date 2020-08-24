@@ -48,7 +48,7 @@ export default class ViewHelpTicket extends Component {
                 </tr>
                 {ticket.faculty ? (
                   <tr>
-                    <td>Assigned to {ticket.faculty}</td>
+                    <td>{this.context.getTicketFaculty(ticket.faculty)}</td>
                     <td>
                       on{" "}
                       {new Intl.DateTimeFormat("en-US").format(
@@ -58,7 +58,7 @@ export default class ViewHelpTicket extends Component {
                   </tr>
                 ) : (
                   <tr>
-                    <td colspan="2" className="pick-up-ticket">
+                    <td colSpan="2" className="pick-up-ticket">
                       {this.context.user.type === "teacher" ? (
                         <button
                           className="btn"
@@ -71,6 +71,29 @@ export default class ViewHelpTicket extends Component {
                       )}
                     </td>
                   </tr>
+                )}
+                {ticket.ticket_status === "IN PROGRESS" ? (
+                  <tr>
+                    <td colSpan="2" className="close-ticket">
+                      <button
+                        className="btn"
+                        onClick={() => this.claimTicket(ticket.id)}
+                      >
+                        CLOSE TICKET
+                      </button>
+                    </td>
+                  </tr>
+                ) : ticket.ticket_status === "CLOSED" ? (
+                  <tr>
+                    <td colSpan="2">
+                      Ticket closed on
+                      {new Intl.DateTimeFormat("en-US").format(
+                        new Date(ticket.closed)
+                      )}
+                    </td>
+                  </tr>
+                ) : (
+                  ""
                 )}
               </tbody>
             </table>
