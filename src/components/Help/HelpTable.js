@@ -40,7 +40,7 @@ export default class HelpTable extends Component {
 
   render() {
     return (
-      <>
+      <div>
         <table id="HelpTable">
           <thead className="tableHead">
             <tr>
@@ -53,7 +53,7 @@ export default class HelpTable extends Component {
           </thead>
           <tbody className="helpTicket">{this.renderHelpTable()}</tbody>
         </table>
-      </>
+      </div>
     );
   }
 }

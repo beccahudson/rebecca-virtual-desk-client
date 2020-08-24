@@ -6,21 +6,23 @@ import "../../App.css";
 export default class Footer extends Component {
   render() {
     return (
-      <footer id="Footer">
-        <div className="itemTriple">
-          <Link to="/">HOME</Link>
-        </div>
-        <div className="itemTriple">
-          <img src="/portrait.png" alt="User Portait" />
-        </div>
-        <div className="itemTriple">
-          {TokenService.hasAuthToken() ? (
-            <Link to="/logout">LOGOUT</Link>
-          ) : (
-            <Link to="/login">LOGIN</Link>
-          )}
-        </div>
-      </footer>
+      <div>
+        <footer id="Footer">
+          <div className="itemTriple">
+            <Link to="/">HOME</Link>
+          </div>
+          <div className="itemTriple">
+            <img src="/portrait.png" alt="User Portait" />
+          </div>
+          <div className="itemTriple">
+            {TokenService.hasAuthToken() ? (
+              <Link to="/logout">LOGOUT</Link>
+            ) : (
+              <Link to="/login">LOGIN</Link>
+            )}
+          </div>
+        </footer>
+      </div>
     );
   }
 }
