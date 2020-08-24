@@ -1,12 +1,11 @@
 import config from "../config";
 import TokenService from "../services/token-service";
+import newTicket from "../components/Help/HelpTicketForm";
 
 const HelpApiService = {
   getUsers() {
     return fetch(`${config.API_ENDPOINT}/users`, {
-      headers: {
-        Authorization: `Bearer ${TokenService.getAuthToken()}`,
-      },
+      headers: {},
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
@@ -22,9 +21,7 @@ const HelpApiService = {
   },
   getTickets() {
     return fetch(`${config.API_ENDPOINT}/help_tickets`, {
-      headers: {
-        Authorization: `Bearer ${TokenService.getAuthToken()}`,
-      },
+      headers: {},
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
@@ -40,9 +37,7 @@ const HelpApiService = {
   },
   getTicket(id) {
     return fetch(`${config.API_ENDPOINT}/help_tickets/${id}`, {
-      headers: {
-        Authorization: `Bearer ${TokenService.getAuthToken()}`,
-      },
+      headers: {},
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
@@ -66,6 +61,19 @@ const HelpApiService = {
         "content-type": "application/json",
         Authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
+      body: JSON.stringify(newTicket),
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
+  },
+  closeHelpTicket(ticketId) {
+    return fetch(`${config.API_ENDPOINT}/help_tickets/${ticketId}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${TokenService.getAuthToken()}`,
+      },
+      body: JSON.stringify(newTicket),
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );

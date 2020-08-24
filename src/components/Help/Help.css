@@ -267,7 +267,8 @@
   background-color: rgba(255, 255, 255, 0.25);
   cursor: pointer;
 }
-#TicketInfo .pick-up-ticket {
+#TicketInfo .pick-up-ticket,
+#TicketInfo .close-ticket {
   text-align: center;
 }
 #ticketPage .btn {

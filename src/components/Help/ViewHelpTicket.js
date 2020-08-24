@@ -85,8 +85,8 @@ export default class ViewHelpTicket extends Component {
                   </tr>
                 ) : ticket.ticket_status === "CLOSED" ? (
                   <tr>
-                    <td colSpan="2">
-                      Ticket closed on
+                    <td colSpan="2" className="close-ticket">
+                      Ticket closed on{" "}
                       {new Intl.DateTimeFormat("en-US").format(
                         new Date(ticket.closed)
                       )}

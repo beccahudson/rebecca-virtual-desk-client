@@ -11,7 +11,6 @@ export default class HelpTable extends Component {
 
   renderHelpTable() {
     return this.context.ticketList.map((ticket) => {
-      console.log(ticket);
       const { ticket_status, subject, question, dueDate, faculty } = ticket;
       const ticketRow = (
         <tr
