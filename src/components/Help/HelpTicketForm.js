@@ -71,6 +71,9 @@ export default class HelpTicketForm extends Component {
             </div>
           </div>
         </section>
+        <button className="btn" onClick={() => this.props.history.goBack()}>
+          Back
+        </button>
       </div>
     );
   }

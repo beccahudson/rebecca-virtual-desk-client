@@ -29,7 +29,7 @@ export default class Login extends Component {
       });
   };
 
-  render() {
+  render(email) {
     return !this.context.user.email ? (
       <div id="loginPage">
         <h1>Welcome to</h1>
