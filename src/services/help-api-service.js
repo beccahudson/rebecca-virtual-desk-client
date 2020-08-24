@@ -66,18 +66,18 @@ const HelpApiService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
-  closeHelpTicket(ticketId) {
-    return fetch(`${config.API_ENDPOINT}/help_tickets/${ticketId}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-        Authorization: `Bearer ${TokenService.getAuthToken()}`,
-      },
-      body: JSON.stringify(newTicket),
-    }).then((res) =>
-      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
-    );
-  },
+  // closeHelpTicket(ticketId) {
+  //   return fetch(`${config.API_ENDPOINT}/help_tickets/${ticketId}`, {
+  //     method: "PATCH",
+  //     headers: {
+  //       "content-type": "application/json",
+  //       Authorization: `Bearer ${TokenService.getAuthToken()}`,
+  //     },
+  //     body: JSON.stringify(newTicket),
+  //   }).then((res) =>
+  //     !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+  //   );
+  // },
 };
 
 export default HelpApiService;
