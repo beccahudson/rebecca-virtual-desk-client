@@ -26,6 +26,7 @@
     "predeploy": "npm run build",
     "deploy": "vercel --prod"
   },
+  "proxy": "http://localhost:8000",
   "eslintConfig": {
     "extends": "react-app"
   },

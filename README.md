@@ -26,7 +26,6 @@ With the state of our nation, dealing with a pandemic forcing families to stay h
 
 Virtual Desk is an app for students to get help more efficiently from a pool of approved resources such as teachers and teacher assistants. Not only will students be able to get help faster, it will also free the teachers from being the only available source for students to seek help.
 
-
 ## How It Works
 
 As the student, I can:
@@ -41,16 +40,13 @@ As the teacher, I can:
 - Find a help ticket that I can pick up containing: subject, question and a due date of when the assignment or project.
 - Close a help ticket when the student is satisfied with their help.
 
-
 ## Client Documentation/Screenshots
 
 1. **Welcome Page** - The first page the user sees, this page contains meta data on the app, such as app description and summary along with a button to move to login.
    ![Welcome Page]()
 
-
-2. **Login Page** - To get started, the user must use their given credentials to login; this will be an email and a password.
+2) **Login Page** - To get started, the user must use their given credentials to login; this will be an email and a password.
    ![Login Page]()
 
-
-8. **Help Ticket Table** - This is how the dashboard looks like when fully expanded. The dashboard contains the disaster management plan/s and the task and shopping lists.
-   ![Help Ticket Table]()
+8. **Help Ticket Page** - This is how students and teachers view their respective tickets.
+   ![Help Ticket Page]()

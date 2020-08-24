@@ -189,15 +189,6 @@ img {
   box-shadow: 5px 5px 5px #000, -1px -1px 5px #808dea;
   border-radius: 5px;
 }
-.new {
-  border: 5px solid #00e676 !important;
-}
-.assigned {
-  border: 5px solid #ffd740 !important;
-}
-.closed {
-  border: 5px solid #ff5252 !important;
-}
 .btn {
   text-decoration: none;
   margin: 0 8px;
@@ -253,7 +244,7 @@ section p {
 }
 
 /* HEADER STYLES */
-header {
+#Header {
   display: block;
   padding: 2%;
   margin-bottom: 2%;
@@ -263,16 +254,16 @@ header {
   height: fit-content;
   text-align: center;
 }
-header h1 {
+#Header h1 {
   font-size: 36px;
   text-align: center;
   text-shadow: 1.5px 1.5px 3px #000, -1px 1px 1.5px #ccc;
   margin: 0.5em auto 0.25em auto;
 }
-header h3 {
+#Header h3 {
   font-weight: 300;
 }
-header img {
+#Header img {
   height: 75px;
   width: 75px;
   margin: 0.5em auto;
@@ -321,12 +312,6 @@ header img {
 
 /****** ALL TABLET STYLES FROM 769px - 1024px ******/
 @media screen and (min-width: 769px) {
-  table th:nth-child(2),
-  table th:nth-child(4),
-  table td:nth-child(2),
-  table td:nth-child(4) {
-    display: table-cell;
-  }
 }
 
 /****** ALL LAPTOP STYLES FROM 1025px - 1438px ******/

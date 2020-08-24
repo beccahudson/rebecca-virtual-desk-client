@@ -8,7 +8,6 @@ import { Redirect } from "react-router-dom";
 
 export default class Login extends Component {
   static contextType = Context;
-  /* state for inputs etc... */
 
   handleSubmitJwtAuth = (ev) => {
     ev.preventDefault();

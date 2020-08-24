@@ -17,11 +17,14 @@ export default class Welcome extends Component {
             Get on demand help from a pool of teachers who will pick up your
             question and get you the help you need now.
           </p>
-          <p>LOGIN BELOW TO GET STARTED</p>
         </article>
         <section id="Welcome">
           <div className="heroImage">
-            <img className="welcomeImage" src="/images/hero-image.PNG"></img>
+            <img
+              className="welcomeImage"
+              src="/images/hero-image.PNG"
+              alt="Welcome"
+            ></img>
           </div>
           <Link to="/login">
             <button className="btn">LOGIN</button>

@@ -49,6 +49,11 @@
 #Help table,
 #table {
   width: 100%;
+  display: table;
+  border-collapse: separate;
+  box-sizing: border-box;
+  border-spacing: 2px;
+  border-color: grey;
 }
 
 #Help table th {
@@ -233,7 +238,7 @@
   font-size: 28px;
   text-align: center;
   color: #eee;
-  border: 0.25px solid #8587c1;
+  /* border: 0.25px solid #8587c1; */
 }
 #TicketInfo tbody {
   text-align: left;
@@ -242,8 +247,10 @@
   color: #eee;
   text-decoration: none;
 }
+#TicketInfo table td:first-child {
+  width: 30%;
+}
 #TicketInfo table td {
-  width: 50%;
   font-size: 18px;
   padding: 8px;
   min-height: 40px;

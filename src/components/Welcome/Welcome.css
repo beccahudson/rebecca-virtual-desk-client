@@ -34,11 +34,7 @@
   position: relative;
   border-top-left-radius: 40%;
   border-bottom-right-radius: 40%;
-  background: linear-gradient(
-    185deg,
-    rgba(234, 235, 237, 100) 0%,
-    rgba(233, 234, 236, 100) 100%
-  );
+  background: #fff;
 }
 .heroImage img {
   width: 90%;
