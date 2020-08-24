@@ -22,7 +22,7 @@ export default class Welcome extends Component {
           <div className="heroImage">
             <img
               className="welcomeImage"
-              src="/images/hero-image.PNG"
+              src="/hero-image.PNG"
               alt="Welcome"
             ></img>
           </div>
