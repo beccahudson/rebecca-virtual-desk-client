@@ -15,7 +15,7 @@ export default class HelpPage extends Component {
         <section id="Help" className="Help wrapper">
           <div className="header group row">
             <h1 className="item">Help Tickets</h1>
-            {!this.context.user.type === "teacher" ? (
+            {this.context.user.type === "student" ? (
               <Link to="/newticket">
                 <input
                   className="btn"
