@@ -10,22 +10,20 @@ export default class Welcome extends Component {
         <h2 className="h1">Virtual Desk</h2>
         <article>
           <p>
-            Virtual students, need help with assignments or just have a
+            <em>Virtual students</em>, need help with assignments or just have a
             question?
           </p>
           <p>
-            Get on demand help from a pool of teachers who will pick up your
-            question and get you the help you need now.
+            Get on demand help from a group of teachers who will pick up your
+            question and get you the help you need NOW.
           </p>
         </article>
         <section id="Welcome">
-          <div className="heroImage">
-            <div className="welcomeImage"></div>
-          </div>
-          <Link to="/login">
-            <button className="btn">LOGIN</button>
-          </Link>
+          <img className="heroImage"></img>
         </section>
+        <Link to="/login" className="btn">
+          <div>LOGIN</div>
+        </Link>
       </div>
     );
   }
