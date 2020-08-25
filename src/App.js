@@ -33,6 +33,13 @@ export default class App extends React.Component {
       );
       this.state.setTicketList(ticketList);
     },
+    // Todo: verify ticketClosed
+    // ticketClosed: (ticketId, updateTicket) => {
+    //   const ticketList = this.state.ticketList.map((t) =>
+    //     t.id === ticketId ? updateTicket : t
+    //   );
+    //   this.state.setTicketList(ticketList);
+    // },
     addTicket: (newTicket) => {
       return this.state.setTicketList([...this.state.ticketList, newTicket]);
     },
@@ -99,15 +106,7 @@ export default class App extends React.Component {
             path="/"
             component={TokenService.hasAuthToken() ? HelpPage : Welcome}
           />
-
-          <Route
-            exact
-            path="/home"
-            component={TokenService.hasAuthToken() ? HelpPage : Welcome}
-          />
-
           <Route path="/login" component={Login} />
-
           <Route
             path="/logout"
             render={(rprops) => {
@@ -117,9 +116,7 @@ export default class App extends React.Component {
               return <></>;
             }}
           />
-
           <Route exact path="/newticket" component={HelpTicketForm} />
-
           <Route exact path="/help/:ticketid" component={ViewHelpTicket} />
         </main>
       </Context.Provider>

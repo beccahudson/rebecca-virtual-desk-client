@@ -231,7 +231,7 @@ button {
 section .btn {
   display: inline-block;
   border: none;
-  color: #02fefe;
+  color: #fff;
   background: none;
   padding: 2px;
   text-transform: uppercase;
@@ -291,10 +291,12 @@ section p {
 }
 #Footer .itemTriple:first-child {
   border-right: 1px solid #eee;
+  text-decoration: underline;
 }
 
 #Footer .itemTriple:last-child {
   border-left: 1px solid #eee;
+  text-decoration: underline;
 }
 #Footer a {
   color: #fff;

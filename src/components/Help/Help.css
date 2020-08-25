@@ -188,10 +188,12 @@
   cursor: pointer;
   transition: all 400ms;
   background: transparent;
-  box-shadow: 2.5px 2.5px 5px #222, -2.5px -2.5px 5px #808dea;
+  color: #eee;
+  box-shadow: 2.5px 2.5px 5px #000, -1px -1px 5px #808dea;
 }
 #TicketForm .btn:hover {
-  box-shadow: inset 2.5px 2.5px 5px #222, inset -2.5px -2.5px 5px #808dea;
+  color: #eee;
+  box-shadow: inset 2.5px 2.5px 5px #000, inset -1px -1px 5px #808dea;
   transform: translatey(2px);
 }
 
@@ -271,21 +273,23 @@
 #TicketInfo .close-ticket {
   text-align: center;
 }
-#ticketPage .btn {
-  color: #eee;
-  font-size: 18px;
+#TicketInfo .btn {
   text-decoration: none;
-  margin: 0 auto;
+  margin: 5px 8px;
   padding: 2%;
   border: none;
   border-radius: 5px;
-  display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 400ms;
   background: transparent;
-  box-shadow: 2.5px 2.5px 5px #222, -2.5px -2.5px 5px #808dea;
+  box-shadow: 2.5px 2.5px 5px #000, -1px -1px 5px #808dea;
+}
+#TicketInfo .btn:hover {
+  color: #eee;
+  box-shadow: inset 2.5px 2.5px 5px #000, inset -1px -1px 5px #808dea;
+  transform: translatey(2px);
 }
 
 /****** ALL LARGE MOBILE STYLES FROM 500px - 768px ******/
@@ -325,6 +329,7 @@
     font-size: 16px;
   }
   #TicketForm {
+    width: 50%;
     margin: 5% auto;
   }
   #ticketFormPage h1 {

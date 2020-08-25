@@ -36,7 +36,8 @@
   border-bottom-right-radius: 40%;
   background: #fff;
 }
-.heroImage img {
+.welcomeImage {
+  background-image: url(./img/hero-image.PNG);
   width: 90%;
   border-top-left-radius: 40%;
   border-bottom-right-radius: 40%;

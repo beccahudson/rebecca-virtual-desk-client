@@ -12,6 +12,12 @@ export default class ViewHelpTicket extends Component {
       this.context.ticketClaimed(ticketId, newTicket)
     );
   };
+  // Todo: verify change ticketClaimed to ticketClosed
+  // closeTicket = (ticketId) => {
+  //   HelpApiService.closeHelpTicket(ticketId).then((updateTicket) =>
+  //     this.context.ticketClosed(ticketId, updateTicket)
+  //   );
+  // };
 
   render() {
     const ticket =
@@ -72,12 +78,13 @@ export default class ViewHelpTicket extends Component {
                     </td>
                   </tr>
                 )}
+                {/* Todo: change claimTicket to closeTicket */}
                 {ticket.ticket_status === "IN PROGRESS" ? (
                   <tr>
                     <td colSpan="2" className="close-ticket">
                       <button
                         className="btn"
-                        onClick={() => this.claimTicket(ticket.id)}
+                        onClick={() => this.closeTicket(ticket.id)}
                       >
                         CLOSE TICKET
                       </button>
@@ -97,12 +104,14 @@ export default class ViewHelpTicket extends Component {
                 )}
               </tbody>
             </table>
+            <input
+              className="btn"
+              type="button"
+              value="Back"
+              onClick={() => this.props.history.goBack()}
+            />
           </div>
         </section>
-
-        <button className="btn" onClick={() => this.props.history.goBack()}>
-          Back
-        </button>
       </div>
     );
   }

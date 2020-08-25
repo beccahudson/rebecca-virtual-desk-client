@@ -15,11 +15,18 @@ export default class HelpPage extends Component {
         <section id="Help" className="Help wrapper">
           <div className="header group row">
             <h1 className="item">Help Tickets</h1>
-            <Link to="/newticket">
-              <button id="new-ticket-btn" className="btn">
-                NEW
-              </button>
-            </Link>
+            {!this.context.user.type === "teacher" ? (
+              <Link to="/newticket">
+                <input
+                  className="btn"
+                  id="new-ticket-btn"
+                  type="button"
+                  value="NEW TICKET"
+                />
+              </Link>
+            ) : (
+              ""
+            )}
           </div>
           <div id="table" className="row-wrap collapse">
             <div className="group row">

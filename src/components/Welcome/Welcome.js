@@ -20,11 +20,7 @@ export default class Welcome extends Component {
         </article>
         <section id="Welcome">
           <div className="heroImage">
-            <img
-              className="welcomeImage"
-              src="/hero-image.PNG"
-              alt="Welcome"
-            ></img>
+            <div className="welcomeImage"></div>
           </div>
           <Link to="/login">
             <button className="btn">LOGIN</button>

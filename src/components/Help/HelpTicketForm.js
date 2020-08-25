@@ -66,14 +66,17 @@ export default class HelpTicketForm extends Component {
                     value="Raise Your Hand!"
                   />
                   <input className="btn" type="reset" value="Reset" />
+                  <input
+                    className="btn"
+                    type="button"
+                    value="Cancel"
+                    onClick={() => this.props.history.goBack()}
+                  />
                 </div>
               </form>
             </div>
           </div>
         </section>
-        <button className="btn" onClick={() => this.props.history.goBack()}>
-          Back
-        </button>
       </div>
     );
   }

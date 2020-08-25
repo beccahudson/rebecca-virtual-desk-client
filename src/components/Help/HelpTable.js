@@ -40,20 +40,18 @@ export default class HelpTable extends Component {
 
   render() {
     return (
-      <div>
-        <table id="HelpTable">
-          <thead className="tableHead">
-            <tr>
-              <th>Status</th>
-              <th>Subject</th>
-              <th>Question</th>
-              <th>Due</th>
-              <th>TEACHER</th>
-            </tr>
-          </thead>
-          <tbody className="helpTicket">{this.renderHelpTable()}</tbody>
-        </table>
-      </div>
+      <table id="HelpTable">
+        <thead className="tableHead">
+          <tr>
+            <th>Status</th>
+            <th>Subject</th>
+            <th>Question</th>
+            <th>Due</th>
+            <th>TEACHER</th>
+          </tr>
+        </thead>
+        <tbody className="helpTicket">{this.renderHelpTable()}</tbody>
+      </table>
     );
   }
 }
