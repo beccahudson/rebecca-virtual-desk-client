@@ -37,7 +37,7 @@
   background: #fff;
 }
 .welcomeImage {
-  background-image: url(./img/hero-image.PNG);
+  /* welcomeImage is in the index.css */
   width: 90%;
   border-top-left-radius: 40%;
   border-bottom-right-radius: 40%;
