@@ -28,12 +28,7 @@ export default class ViewHelpTicket extends Component {
   };
 
   render() {
-    const {
-      user = {},
-      ticketList = [],
-      // getTicketStatus,
-      getTicketFaculty,
-    } = this.context;
+    const { user = {}, ticketList = [], getTicketFaculty } = this.context;
 
     const ticket =
       ticketList.find(
