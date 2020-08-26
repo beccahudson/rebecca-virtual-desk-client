@@ -9,13 +9,14 @@ export default class HelpPage extends Component {
   static contextType = Context;
 
   render() {
+    const { user = {} } = this.context;
     return (
       <div className="helpPage">
         <Header />
         <section id="Help" className="Help wrapper">
           <div className="header group row">
             <h1 className="item">Help Tickets</h1>
-            {this.context.user.type === "student" ? (
+            {user.type === "student" ? (
               <Link to="/newticket">
                 <input
                   className="btn"

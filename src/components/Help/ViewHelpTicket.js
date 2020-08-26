@@ -12,16 +12,31 @@ export default class ViewHelpTicket extends Component {
       this.context.ticketClaimed(ticketId, newTicket)
     );
   };
-  // Todo: verify change ticketClaimed to ticketClosed
   closeTicket = (ticketId) => {
     HelpApiService.closeHelpTicket(ticketId).then((updateTicket) =>
       this.context.ticketClosed(ticketId, updateTicket)
     );
   };
+  getTicketStatus = (ticketStatus) => {
+    return ticketStatus === "IN PROGRESS" ? (
+      <td className="yellow">{ticketStatus}</td>
+    ) : ticketStatus === "CLOSED" ? (
+      <td className="red">{ticketStatus}</td>
+    ) : (
+      <td className="green">{ticketStatus}</td>
+    );
+  };
 
   render() {
+    const {
+      user = {},
+      ticketList = [],
+      // getTicketStatus,
+      getTicketFaculty,
+    } = this.context;
+
     const ticket =
-      this.context.ticketList.find(
+      ticketList.find(
         (t) => t.id === Number(this.props.match.params.ticketid)
       ) || {};
     return (
@@ -50,11 +65,11 @@ export default class ViewHelpTicket extends Component {
                 </tr>
                 <tr>
                   <td>Status: </td>
-                  {this.context.getTicketStatus(ticket.ticket_status)}
+                  {this.getTicketStatus(ticket.ticket_status)}
                 </tr>
                 {ticket.faculty ? (
                   <tr>
-                    <td>{this.context.getTicketFaculty(ticket.faculty)}</td>
+                    <td>{getTicketFaculty(ticket.faculty)}</td>
                     <td>
                       on{" "}
                       {new Intl.DateTimeFormat("en-US").format(
@@ -65,7 +80,7 @@ export default class ViewHelpTicket extends Component {
                 ) : (
                   <tr>
                     <td colSpan="2" className="pick-up-ticket">
-                      {this.context.user.type === "teacher" ? (
+                      {user.type === "teacher" ? (
                         <button
                           className="btn"
                           onClick={() => this.claimTicket(ticket.id)}
@@ -78,7 +93,6 @@ export default class ViewHelpTicket extends Component {
                     </td>
                   </tr>
                 )}
-                {/* Todo: change claimTicket to closeTicket */}
                 {ticket.ticket_status === "IN PROGRESS" ? (
                   <tr>
                     <td colSpan="2" className="close-ticket">

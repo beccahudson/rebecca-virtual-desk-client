@@ -8,9 +8,20 @@ export default class HelpTable extends Component {
   handleClick = (ticketid) => {
     this.props.history.push(`/help/${ticketid}`);
   };
+  getTicketStatus = (ticketStatus) => {
+    return ticketStatus === "IN PROGRESS" ? (
+      <td className="yellow">{ticketStatus}</td>
+    ) : ticketStatus === "CLOSED" ? (
+      <td className="red">{ticketStatus}</td>
+    ) : (
+      <td className="green">{ticketStatus}</td>
+    );
+  };
 
   renderHelpTable() {
-    return this.context.ticketList.map((ticket) => {
+    const { ticketList = [], getTicketFaculty } = this.context;
+
+    return ticketList.map((ticket) => {
       const { ticket_status, subject, question, dueDate, faculty } = ticket;
       const ticketRow = (
         <tr
@@ -18,13 +29,13 @@ export default class HelpTable extends Component {
           key={ticket.id}
           onClick={() => this.handleClick(ticket.id)}
         >
-          {this.context.getTicketStatus(ticket_status)}
+          {this.getTicketStatus(ticket_status)}
           <td>{subject}</td>
           <td className="question">{question}</td>
           <td>{dueDate}</td>
           <td>
             {ticket_status === "IN PROGRESS"
-              ? this.context.getTicketFaculty(faculty)
+              ? getTicketFaculty(faculty)
               : ticket_status === "CLOSED"
               ? `Ticket ${ticket_status.toLowerCase()} on 
                 ${new Intl.DateTimeFormat("en-US").format(

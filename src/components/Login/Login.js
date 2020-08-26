@@ -30,7 +30,9 @@ export default class Login extends Component {
   };
 
   render(email) {
-    return !this.context.user.email ? (
+    const { user = {} } = this.context;
+
+    return !user.email ? (
       <div id="loginPage">
         <h1>Welcome to</h1>
         <h2 className="h1">Virtual Desk</h2>

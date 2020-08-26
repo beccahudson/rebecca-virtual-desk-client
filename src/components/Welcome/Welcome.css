@@ -21,7 +21,7 @@
   margin: 0;
 }
 #welcomePage article {
-  padding: 10% 5% 0 5%;
+  padding: 10% 5%;
 }
 #welcomePage p {
   color: #fff;
@@ -29,6 +29,7 @@
   font-size: 14px;
 }
 #Welcome {
+  min-width: 250px;
   width: 100%;
   height: 100%;
   margin: auto;
@@ -38,7 +39,7 @@
   background: #fff;
 }
 #Welcome .heroImage {
-  width: 100px;
+  width: 250px;
 }
 #welcomePage .btn {
   text-decoration: none;
@@ -68,7 +69,6 @@
 @media screen and (min-width: 400px) {
   #welcomePage section {
     margin: auto;
-    padding-bottom: 100px;
   }
   #welcomePage p {
     font-size: 16px;
@@ -81,6 +81,9 @@
   #welcomePage article {
     padding: 5%;
   }
+  #Welcome .heroImage {
+    width: 350px;
+  }
 }
 @media screen and (min-width: 769px) {
   #welcomePage .h1 {
@@ -89,9 +92,15 @@
   #welcomePage article {
     padding: 2.5%;
   }
+  #Welcome .heroImage {
+    width: 450px;
+  }
 }
 @media screen and (min-width: 1025px) {
   #welcomePage h1 {
     margin: 2.5% auto;
+  }
+  #Welcome .heroImage {
+    width: 500px;
   }
 }

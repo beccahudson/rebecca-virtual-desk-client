@@ -59,15 +59,6 @@ export default class App extends React.Component {
         return facultyCell;
       });
     },
-    getTicketStatus: (ticketStatus) => {
-      return ticketStatus === "IN PROGRESS" ? (
-        <td className="yellow">{ticketStatus}</td>
-      ) : ticketStatus === "CLOSED" ? (
-        <td className="red">{ticketStatus}</td>
-      ) : (
-        <td className="green">{ticketStatus}</td>
-      );
-    },
     getData: () => {
       HelpApiService.getUsers()
         .then(this.state.setUserList)
