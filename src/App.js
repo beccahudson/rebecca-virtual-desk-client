@@ -33,13 +33,12 @@ export default class App extends React.Component {
       );
       this.state.setTicketList(ticketList);
     },
-    // Todo: verify ticketClosed
-    // ticketClosed: (ticketId, updateTicket) => {
-    //   const ticketList = this.state.ticketList.map((t) =>
-    //     t.id === ticketId ? updateTicket : t
-    //   );
-    //   this.state.setTicketList(ticketList);
-    // },
+    ticketClosed: (ticketId, updateTicket) => {
+      const ticketList = this.state.ticketList.map((t) =>
+        t.id === ticketId ? updateTicket : t
+      );
+      this.state.setTicketList(ticketList);
+    },
     addTicket: (newTicket) => {
       return this.state.setTicketList([...this.state.ticketList, newTicket]);
     },

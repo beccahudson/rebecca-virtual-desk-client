@@ -13,11 +13,11 @@ export default class ViewHelpTicket extends Component {
     );
   };
   // Todo: verify change ticketClaimed to ticketClosed
-  // closeTicket = (ticketId) => {
-  //   HelpApiService.closeHelpTicket(ticketId).then((updateTicket) =>
-  //     this.context.ticketClosed(ticketId, updateTicket)
-  //   );
-  // };
+  closeTicket = (ticketId) => {
+    HelpApiService.closeHelpTicket(ticketId).then((updateTicket) =>
+      this.context.ticketClosed(ticketId, updateTicket)
+    );
+  };
 
   render() {
     const ticket =
