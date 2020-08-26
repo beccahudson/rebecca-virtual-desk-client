@@ -21,7 +21,7 @@ export default class Welcome extends Component {
         <section id="Welcome">
           <img
             className="heroImage"
-            src="/img/hero-image.png"
+            src="/static/img/hero-image.png"
             alt="Virtual Desk Hero"
           />
         </section>
