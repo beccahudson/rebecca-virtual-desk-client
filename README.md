@@ -45,8 +45,8 @@ As the teacher, I can:
 1. **Welcome Page** - The first page the user sees, this page contains meta data on the app, such as app description and summary along with a button to move to login.
    ![Welcome Page]()
 
-2) **Login Page** - To get started, the user must use their given credentials to login; this will be an email and a password.
+2. **Login Page** - To get started, the user must use their given credentials to login; this will be an email and a password.
    ![Login Page]()
 
-8. **Help Ticket Page** - This is how students and teachers view their respective tickets.
-   ![Help Ticket Page]()
+3. **Help Ticket Page** - This is how students and teachers view their respective tickets.
+   ![Help Ticket Page](https://github.com/beccahudson/rebecca-virtual-desk-client/blob/master/public/static/screenshots/helpTicketScreen.png?raw=true)
