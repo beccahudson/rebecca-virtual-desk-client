@@ -60,17 +60,19 @@ export default class HelpTicketForm extends Component {
                   />
                 </div>
                 <div className="form-field submit-field">
-                  <input
-                    className="btn"
-                    type="submit"
-                    value="Raise Your Hand!"
-                  />
                   <input className="btn" type="reset" value="Reset" />
                   <input
                     className="btn"
                     type="button"
                     value="Cancel"
                     onClick={() => this.props.history.goBack()}
+                  />
+                </div>
+                <div className="form-field submit-field">
+                  <input
+                    className="btn full-btn"
+                    type="submit"
+                    value="Raise Your Hand!"
                   />
                 </div>
               </form>

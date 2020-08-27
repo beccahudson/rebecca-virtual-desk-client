@@ -18,10 +18,11 @@
     "xss": "^1.0.8"
   },
   "scripts": {
+    "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache",
     "start": "react-scripts start",
     "prebuild": "CI=true react-scripts test --colors",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test -w",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "vercel --prod"

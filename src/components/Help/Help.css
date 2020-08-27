@@ -196,6 +196,10 @@
   box-shadow: inset 2.5px 2.5px 5px #000, inset -1px -1px 5px #808dea;
   transform: translatey(2px);
 }
+#TicketForm .full-btn {
+  width: 100%;
+  margin: 5px 8px;
+}
 
 /****** VIEW HELP TICKET ******/
 #ticketPage {
@@ -245,8 +249,8 @@
   text-align: left;
 }
 #TicketInfo table td a {
-  color: #eee;
-  text-decoration: none;
+  color: #02fefe;
+  text-decoration: underline !important;
 }
 #TicketInfo table td:first-child {
   width: 30%;

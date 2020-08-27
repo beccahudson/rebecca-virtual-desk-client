@@ -26,14 +26,34 @@ export default class ViewHelpTicket extends Component {
       <td className="green">{ticketStatus}</td>
     );
   };
+  // getStudentAssignedEmail = (student) => {
+  //   return userList.map((user) => {
+  //     const studentEmail = student === user.id ? `${user.email}` : "";
+  //     return studentEmail;
+  //   });
+  // };
 
   render() {
-    const { user = {}, ticketList = [], getTicketFaculty } = this.context;
+    const {
+      user = {},
+      userList = [],
+      ticketList = [],
+      getFacultyAssignedEmail,
+    } = this.context;
 
     const ticket =
       ticketList.find(
         (t) => t.id === Number(this.props.match.params.ticketid)
       ) || {};
+
+    const studentAssignedEmail = userList.map((user) =>
+      user.id === ticket.student ? `${user.email}` : ""
+    );
+
+    const facultyAssignedName = userList.map((user) =>
+      user.id === ticket.faculty ? `${user.firstName} ${user.lastName}` : ""
+    );
+
     return (
       <div id="ticketPage">
         <Header />
@@ -59,17 +79,41 @@ export default class ViewHelpTicket extends Component {
                   <td>{ticket.dueDate}</td>
                 </tr>
                 <tr>
+                  <td>Email: </td>
+                  <td>
+                    <a
+                      href={"mailto:" + studentAssignedEmail}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mailto"
+                    >
+                      Respond to {facultyAssignedName}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
                   <td>Status: </td>
                   {this.getTicketStatus(ticket.ticket_status)}
                 </tr>
                 {ticket.faculty ? (
                   <tr>
-                    <td>{getTicketFaculty(ticket.faculty)}</td>
                     <td>
-                      on{" "}
                       {new Intl.DateTimeFormat("en-US").format(
                         new Date(ticket.assigned)
                       )}
+                    </td>
+                    <td>
+                      Assigned to{" "}
+                      <a
+                        href={
+                          "mailto:" + getFacultyAssignedEmail(ticket.faculty)
+                        }
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mailto"
+                      >
+                        {facultyAssignedName}
+                      </a>
                     </td>
                   </tr>
                 ) : (

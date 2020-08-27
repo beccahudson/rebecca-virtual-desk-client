@@ -19,10 +19,14 @@ export default class HelpTable extends Component {
   };
 
   renderHelpTable() {
-    const { ticketList = [], getTicketFaculty } = this.context;
+    const { ticketList = [], userList = [] } = this.context;
 
     return ticketList.map((ticket) => {
       const { ticket_status, subject, question, dueDate, faculty } = ticket;
+      const facultyAssignedName = userList.map((user) =>
+        user.id === faculty ? `${user.firstName} ${user.lastName}` : ""
+      );
+
       const ticketRow = (
         <tr
           className="tableBodyRow"
@@ -35,7 +39,7 @@ export default class HelpTable extends Component {
           <td>{dueDate}</td>
           <td>
             {ticket_status === "IN PROGRESS"
-              ? getTicketFaculty(faculty)
+              ? { facultyAssignedName }
               : ticket_status === "CLOSED"
               ? `Ticket ${ticket_status.toLowerCase()} on 
                 ${new Intl.DateTimeFormat("en-US").format(
