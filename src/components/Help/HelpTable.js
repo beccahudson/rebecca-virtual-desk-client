@@ -39,7 +39,7 @@ export default class HelpTable extends Component {
           <td>{dueDate}</td>
           <td>
             {ticket_status === "IN PROGRESS"
-              ? { facultyAssignedName }
+              ? facultyAssignedName
               : ticket_status === "CLOSED"
               ? `Ticket ${ticket_status.toLowerCase()} on 
                 ${new Intl.DateTimeFormat("en-US").format(

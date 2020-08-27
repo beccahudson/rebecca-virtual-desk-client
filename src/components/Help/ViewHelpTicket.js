@@ -26,20 +26,9 @@ export default class ViewHelpTicket extends Component {
       <td className="green">{ticketStatus}</td>
     );
   };
-  // getStudentAssignedEmail = (student) => {
-  //   return userList.map((user) => {
-  //     const studentEmail = student === user.id ? `${user.email}` : "";
-  //     return studentEmail;
-  //   });
-  // };
 
   render() {
-    const {
-      user = {},
-      userList = [],
-      ticketList = [],
-      getFacultyAssignedEmail,
-    } = this.context;
+    const { user = {}, userList = [], ticketList = [] } = this.context;
 
     const ticket =
       ticketList.find(
@@ -52,6 +41,14 @@ export default class ViewHelpTicket extends Component {
 
     const facultyAssignedName = userList.map((user) =>
       user.id === ticket.faculty ? `${user.firstName} ${user.lastName}` : ""
+    );
+
+    const facultyAssignedEmail = userList.map((user) =>
+      user.id === ticket.faculty ? `${user.email}` : ""
+    );
+
+    const studentAssignedName = userList.map((user) =>
+      user.id === ticket.student ? `${user.firstName} ${user.lastName}` : ""
     );
 
     return (
@@ -87,7 +84,7 @@ export default class ViewHelpTicket extends Component {
                       rel="noopener noreferrer"
                       className="mailto"
                     >
-                      Respond to {facultyAssignedName}
+                      Respond to {studentAssignedName}
                     </a>
                   </td>
                 </tr>
@@ -105,9 +102,7 @@ export default class ViewHelpTicket extends Component {
                     <td>
                       Assigned to{" "}
                       <a
-                        href={
-                          "mailto:" + getFacultyAssignedEmail(ticket.faculty)
-                        }
+                        href={"mailto:" + facultyAssignedEmail}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="mailto"

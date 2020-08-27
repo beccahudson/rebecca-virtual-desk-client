@@ -49,19 +49,6 @@ export default class App extends React.Component {
     clearError: () => {
       this.setState({ error: null });
     },
-    getFacultyAssignedEmail: (faculty) => {
-      return this.state.userList.map((user) => {
-        const facultyEmail = faculty === user.id ? `${user.email}` : "";
-        return facultyEmail;
-      });
-    },
-    getStudentAssignedName: (student) => {
-      return this.state.userList.map((user) => {
-        const studentName =
-          student === user.id ? `${user.firstName} ${user.lastName}` : "";
-        return studentName;
-      });
-    },
     getData: () => {
       HelpApiService.getUsers()
         .then(this.state.setUserList)
